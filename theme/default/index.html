@@ -20,22 +20,25 @@
 
 <body>
     <div class="main">
-        <div class="main__nav">
-        </div>
+        <!-- <div class="main__nav">
+        </div> -->
         <div class="main__container">
         </div>
     </div>
 </body>
+<!-- exampleConfig -->
+<script src="../../example/config.js"></script>
 <script>
+
     // 变量
     const body = document.querySelector('body')
     const mainContainer = body.querySelector('.main__container')
-    const TOTAL = 2
+
     // 加载example
     let ele = null
-    for (let i = 1; i <= TOTAL; i++) {
+    for (let key in exampleConfig) {
         ele = document.createElement('object')
-        ele.data = `../../example/${i}/${i}.html`
+        ele.data = `../../example/${key}/index.html`
         ele.width = '100%'
         ele.height = '100%'
         mainContainer.appendChild(ele)
