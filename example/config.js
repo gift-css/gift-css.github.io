@@ -4,4 +4,5 @@ export const exampleConfig = {
   '2': "3D导航栏",
   '3': "头像轮播",
   '4': "动画倒计时",
+  '5': "Auto Text Effect",
 };
