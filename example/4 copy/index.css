@@ -34,92 +34,16 @@ h4 {
 .nums {
   color: #3498db;
   font-size: 50px;
+  overflow: hidden;
 }
 
-#countdown {
+#countdown,
+#go {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -20%);
+  transform: translate(-50%, -50%);
 }
-
-
-
-.show {
-  animation: anime-show 0.2s ease-out;
-  opacity: 1;
-}
-
-.hide {
-  animation: anime-hide 0.2s ease-out;
-  opacity: 0;
-}
-
-.in {
-  transform-origin: bottom center;
-  animation: anime-in 0.5s infinite;
-}
-
-.out {
-  transform-origin: bottom center;
-  animation: anime-out 0.5s infinite;
-}
-
-
-@keyframes anime-in {
-  0% {
-    transform: rotate(100deg);
-  }
-
-  30% {
-    transform: rotate(-20deg);
-  }
-
-  60% {
-    transform: rotate(10deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes anime-out {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  60% {
-    transform: rotate(20deg);
-  }
-
-  100% {
-    transform: rotate(-100deg);
-  }
-}
-
-
-
-@keyframes anime-hide {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(0);
-  }
-}
-
-@keyframes anime-show {
-  0% {
-    transform: scale(0);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}
-
 
 
 #replay {
@@ -150,4 +74,83 @@ h4 {
 #replay:hover:after {
   opacity: 1;
   right: 5px;
+}
+
+
+
+
+.show {
+  animation: anime-show 0.2s ease-out;
+  opacity: 1;
+}
+
+.hide {
+  animation: anime-hide 0.2s ease-out;
+  opacity: 0;
+}
+
+.in {
+  transform-origin: bottom center;
+  animation: anime-in 0.5s ease-in-out;
+}
+
+.out {
+  transform-origin: bottom center;
+  animation: anime-out 0.5s ease-in-out;
+}
+
+
+
+@keyframes anime-in {
+  0% {
+    transform: rotate(120deg);
+  }
+
+  30% {
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes anime-out {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-120deg);
+  }
+}
+
+
+
+@keyframes anime-hide {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes anime-show {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
