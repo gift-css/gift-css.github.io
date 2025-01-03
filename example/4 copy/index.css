@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+h4 {
+  font-size: 20px;
+  margin: 5px;
+  text-transform: uppercase;
+  /* text-transform CSS 属性指定如何将元素的文本大写。它可以用于使文本显示为全大写或全小写，也可单独对每一个单词进行操作。 
+  */
+}
+
+
+.wrap {
+  width: 100%;
+  text-align: center;
+}
+
+.nums {
+  color: #3498db;
+  font-size: 50px;
+}
+
+#countdown {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -20%);
+}
+
+
+
+.show {
+  animation: anime-show 0.2s ease-out;
+  opacity: 1;
+}
+
+.hide {
+  animation: anime-hide 0.2s ease-out;
+  opacity: 0;
+}
+
+.in {
+  transform-origin: bottom center;
+  animation: anime-in 0.5s infinite;
+}
+
+.out {
+  transform-origin: bottom center;
+  animation: anime-out 0.5s infinite;
+}
+
+
+@keyframes anime-in {
+  0% {
+    transform: rotate(100deg);
+  }
+
+  30% {
+    transform: rotate(-20deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes anime-out {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  60% {
+    transform: rotate(20deg);
+  }
+
+  100% {
+    transform: rotate(-100deg);
+  }
+}
+
+
+
+@keyframes anime-hide {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes anime-show {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+#replay {
+  background-color: #3498db;
+  border: none;
+  padding: 5px;
+  border-radius: 3px;
+  color: aliceblue;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+  position: relative;
+}
+
+#replay:hover {
+  padding-right: 25px;
+}
+
+#replay:after {
+  content: '\00bb';
+  display: inline-block;
+  position: absolute;
+  right: -20px;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+#replay:hover:after {
+  opacity: 1;
+  right: 5px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>动画倒计时</title>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <div id="countdown" class="show">
+      <div class="nums">
+        <div class="out">3</div>
+      </div>
+      <h4>Get Ready</h4>
+    </div>
+    <div id="go" class="hide">
+      <h1>GO</h1>
+      <button id="replay">Replay</button>
+    </div>
+  </div>
+
+</body>
+<script>
+
+  const countdown = document.querySelector('#countdown')
+  const go = document.querySelector('#go')
+  const replay = document.querySelector('#replay')
+  
+
+  replay.addEventListener('click', () => {
+    go.classList.remove('show')
+    go.classList.add('hide')
+    countdown.classList.remove('hide')
+  })
+
+
+
+
+
+
+
+
+</script>
+
+</html>
