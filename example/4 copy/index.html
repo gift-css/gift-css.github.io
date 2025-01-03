@@ -10,13 +10,13 @@
 
 <body>
   <div class="wrap">
-    <div id="countdown" class="show">
+    <div id="countdown" class="hide">
       <div class="nums">
         <div class="out">3</div>
       </div>
       <h4>Get Ready</h4>
     </div>
-    <div id="go" class="hide">
+    <div id="go" class="show">
       <h1>GO</h1>
       <button id="replay">Replay</button>
     </div>
@@ -28,13 +28,40 @@
   const countdown = document.querySelector('#countdown')
   const go = document.querySelector('#go')
   const replay = document.querySelector('#replay')
-  
+  const num = document.querySelectorAll('.nums>div')[0]
 
   replay.addEventListener('click', () => {
     go.classList.remove('show')
     go.classList.add('hide')
     countdown.classList.remove('hide')
+    countdown.classList.add('show')
+    num.innerHTML = 3
   })
+
+  function countdownStart(item) {
+    if (item.animationName === 'anime-in') {
+      num.classList.remove('in')
+      num.classList.add('out')
+    }
+    if (item.animationName === 'anime-out') {
+      num.classList.remove('out')
+      num.classList.add('in')
+
+      const value = Number(num.innerHTML)
+      if (value > 0) {
+        num.innerHTML = value - 1
+      } else {
+        go.classList.remove('hide')
+        go.classList.add('show')
+        countdown.classList.remove('show')
+        countdown.classList.add('hide')
+      }
+    }
+  }
+
+  num.addEventListener('animationend', countdownStart)
+
+
 
 
 
