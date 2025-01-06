@@ -23,61 +23,6 @@
   </div>
 
 </body>
-<script>
-
-  const countdown = document.querySelector('#countdown')
-  const go = document.querySelector('#go')
-  const replay = document.querySelector('#replay')
-  const num = document.querySelectorAll('.nums>div')[0]
-
-
-
-  function reset() {
-    go.classList.remove('hide')
-    go.classList.add('show')
-    countdown.classList.remove('show')
-    countdown.classList.add('hide')
-    num.style.animationPlayState = 'paused'
-  }
-
-  function start() {
-    go.classList.remove('show')
-    go.classList.add('hide')
-    countdown.classList.remove('hide')
-    countdown.classList.add('show')
-    num.innerHTML = 3
-    num.style.animationPlayState = 'running'
-  }
-
-
-  // 单机按钮
-  replay.addEventListener('click', () => {
-    start()
-  })
-
-  // 动画结束执行
-  num.addEventListener('animationend', (item) => {
-    if (item.animationName === 'anime-in') {
-      num.classList.remove('in')
-      num.classList.add('out')
-    }
-    if (item.animationName === 'anime-out') {
-      num.classList.remove('out')
-      num.classList.add('in')
-
-      const value = Number(num.innerHTML)
-      if (value > 0) {
-        num.innerHTML = value - 1
-      } else {
-        // 结束
-        reset()
-      }
-    }
-  })
-
-
-
-
-</script>
+<script src="./index.js"></script>
 
 </html>

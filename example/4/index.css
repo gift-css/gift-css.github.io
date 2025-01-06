@@ -92,13 +92,11 @@ h4 {
 .in {
   transform-origin: bottom center;
   animation: anime-in 0.5s ease-in-out;
-  animation-play-state: paused;
 }
 
 .out {
   transform-origin: bottom center;
   animation: anime-out 0.5s ease-in-out;
-  animation-play-state: paused;
 }
 
 
