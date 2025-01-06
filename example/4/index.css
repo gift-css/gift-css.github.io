@@ -139,20 +139,20 @@ h4 {
 
 @keyframes anime-hide {
   0% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 
   100% {
-    transform: scale(0);
+    transform: translate(-50%, -50%) scale(0);
   }
 }
 
 @keyframes anime-show {
   0% {
-    transform: scale(0);
+    transform: translate(-50%, -50%) scale(0);
   }
 
   100% {
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
   }
 }
