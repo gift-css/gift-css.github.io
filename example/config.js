@@ -3,6 +3,6 @@ export const exampleConfig = {
   '1': "脉冲波纹催眠动画特效",
   '2': "3D导航栏",
   '3': "头像轮播",
-  '4': "动画倒计时",
+  '4': "animated-countdown",
   '5': "Auto Text Effect",
 };
