@@ -5,4 +5,5 @@ export const exampleConfig = {
   '3': "头像轮播",
   '4': "animated-countdown",
   '5': "Auto Text Effect",
+  '6': "loading",
 };
