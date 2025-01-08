@@ -5,5 +5,6 @@ export const exampleConfig = {
   '3': "头像轮播",
   '4': "animated-countdown",
   '5': "Auto Text Effect",
-  '6': "loading",
+  '6': "常规loading",
+  '7': "抛出线条式loading",
 };
