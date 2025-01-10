@@ -7,4 +7,5 @@ export const exampleConfig = {
   '5': "Auto Text Effect",
   '6': "常规loading",
   '7': "抛出线条式loading",
+  '8': "长方形进度条",
 };
