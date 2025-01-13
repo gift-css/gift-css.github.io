@@ -8,4 +8,5 @@ export const exampleConfig = {
   '6': "常规loading",
   '7': "抛出线条式loading",
   '8': "长方形进度条",
+  '9': "椭圆式进度条loading",
 };
