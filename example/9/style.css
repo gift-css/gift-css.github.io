@@ -20,16 +20,16 @@ body {
 
 .loading {
     width: 120px;
-    height: 22px;
+    height: 20px;
     border-radius: 20px;
-    color: #514b82;
-    border: 2px solid;
+    border: 2px solid #514b82;
     position: relative;
 }
 
 .loading::before {
     content: "";
     position: absolute;
+    display: block;
     margin: 2px;
     inset: 0 100% 0 0;
     border-radius: inherit;
