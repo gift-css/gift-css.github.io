@@ -22,7 +22,8 @@ body {
 .loading {
     width: 120px;
     height: 20px;
-    background: linear-gradient(rgb(12, 132, 223) 0 0) 0/0% no-repeat #ddd;
+    background: linear-gradient(rgb(12, 132, 223), rgb(12, 132, 223)) no-repeat #ddd;
+    background-size: 0%;
     animation: cartoon 2s infinite linear;
 }
 
