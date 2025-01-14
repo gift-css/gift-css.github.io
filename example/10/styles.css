@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    perspective: 1000px;
+    /* 3D 透视效果 */
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    /* 3D 变换效果 */
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* 隐藏背面 */
+    border-radius: 10px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-front {
+    background-color: #007BFF;
+    color: white;
+    display: flex;
+}
+
+.card-back {
+    background-color: #FFC107;
+    color: black;
+    transform: rotateY(180deg);
+    /* 翻转背面 */
+    display: flex;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+    /* 翻转卡片 */
+}

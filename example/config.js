@@ -9,4 +9,5 @@ export const exampleConfig = {
   '7': "抛出线条式loading",
   '8': "长方形进度条",
   '9': "椭圆式进度条loading",
+  '10': "卡片翻转特效",
 };
