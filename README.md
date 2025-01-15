@@ -17,12 +17,14 @@
 ```
 special_css
 ├─ example
-│  ├─ 1
-│  │  ├─ 1.css
-│  │  └─ 1.html
-│  └─ 2
-│     ├─ 2.css
-│     └─ 2.html
+│  ├─ config[key]
+│  │  ├─ index.html
+│  │  ├─ style.css
+│  │  └─ script.js
+│  └─ config[next key]
+│  │  ├─ index.html
+│  │  ├─ style.css
+│  │  └─ script.js
 ├─ index.html
 ├─ public
 │  ├─ css
@@ -33,17 +35,8 @@ special_css
 │     └─ index.js
 ├─ README.md
 └─ theme
-   ├─ default
-   │  ├─ index.css
-   │  └─ index.html
    ├─ theme1
-   │  ├─ index.css
    │  └─ index.html
-   ├─ theme2
-   │  ├─ index.css
-   │  └─ index.html
-   └─ theme3
-      ├─ index.css
+   └─ theme2
       └─ index.html
-
 ```
