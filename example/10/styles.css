@@ -15,7 +15,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    /* background-color: #f0f0f0; */
     perspective: 1000px;
     /* 3D 透视效果 */
 }

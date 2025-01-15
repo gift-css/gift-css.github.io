@@ -9,7 +9,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #121212;
+    /* background-color: #121212; */
 }
 .container{
     display: flex;

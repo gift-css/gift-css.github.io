@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     /* 渐变背景 */
-    background: linear-gradient(200deg, #fff, #dfe9f3);
+    /* background: linear-gradient(200deg, #fff, #dfe9f3); */
 }
 
 ul {
