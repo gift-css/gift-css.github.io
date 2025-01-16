@@ -31,6 +31,7 @@ body {
     background: red;
     border-radius: 50%;
     z-index: 1;
+    cursor: pointer;
 }
 
 .play>.button::after {
@@ -51,12 +52,27 @@ body {
     border-radius: 50%;
     z-index: 0;
     background: rgb(255, 0, 0, 0.3);
-    animation: wave 0.5s ease-in-out infinite;
 }
 
+.play.active .mask {
+    width: 160px;
+    height: 160px;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    background: rgb(255, 0, 0, 0.3);
+    animation: wave 0.7s ease-in-out;
+}
+
+
 @keyframes wave {
-    100% {
+    50% {
         width: 220px;
         height: 220px;
+    }
+
+    100% {
+        width: 160px;
+        height: 160px;
     }
 }
