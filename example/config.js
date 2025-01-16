@@ -12,4 +12,5 @@ export const exampleConfig = {
   '10': "卡片翻转特效",
   '11': "模态窗口特效",
   '12': "伸缩效果示例",
+  '13': "Free You Tube Video Play Button Animation",
 };
