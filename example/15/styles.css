@@ -41,7 +41,7 @@ body {
 .button.active {
     width: 60px;
     height: 60px;
-    background: greenyellow;
+    background: rgb(84, 196, 151);
     animation: toggle 3s;
 }
 
@@ -93,6 +93,6 @@ body {
     100% {
         width: 60px;
         height: 60px;
-        background: greenyellow;
+        background: rgb(84, 196, 151);
     }
 }
