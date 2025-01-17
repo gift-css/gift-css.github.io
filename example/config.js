@@ -13,4 +13,5 @@ export const exampleConfig = {
   '11': "模态窗口特效",
   '12': "伸缩效果示例",
   '13': "Free You Tube Video Play Button Animation",
+  '14': "Glitter Button Animation",
 };
