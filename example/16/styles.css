@@ -33,11 +33,16 @@ body {
 }
 
 .button.active {
-    animation: toggle-bg 0.4s ease-out forwards;
+    animation: toggle-bg 0.7s ease-out forwards;
 }
 
 @keyframes toggle-bg {
-    50% {
+    30% {
+        width: 180px;
+        background: rgb(47, 107, 224);
+    }
+
+    60% {
         width: 60px;
         background: rgb(47, 107, 224);
     }
