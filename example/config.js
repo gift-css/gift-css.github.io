@@ -15,4 +15,5 @@ export const exampleConfig = {
   '13': "Free You Tube Video Play Button Animation",
   '14': "Glitter Button Animation",
   '15': "Next Button Animation",
+  '16': "Pay Canceled Button Animation",
 };
