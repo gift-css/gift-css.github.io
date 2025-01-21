@@ -19,80 +19,118 @@ body {
 
 
 .button {
-    background: rgb(65, 180, 208);
-    width: 150px;
-    height: 60px;
-    border-radius: 30px;
     cursor: pointer;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.button::after {
-    content: 'Next';
     font-weight: 700;
+    position: relative;
+    width: 150px;
+    height: 60px;
+    background: rgb(47, 107, 224);
+    /* background: rgb(219, 73, 72); */
+    border-radius: 30px;
     letter-spacing: 2px;
-
+    overflow: hidden;
 }
 
 .button.active {
-    width: 60px;
-    height: 60px;
-    background: rgb(84, 196, 151);
-    animation: toggle 3s;
+    animation: toggle-bg 0.4s ease-out forwards;
 }
 
-.button.active::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 40px;
-    background-image: url('./assets/success.svg');
-    background-repeat: no-repeat;
-    background-size: 40px;
-    animation: content 3s;
-}
-
-
-@keyframes content {
-    0% {
-        background: url('./assets/loading.svg') 0/40px no-repeat;
-    }
-
-    75% {
-        background: url('./assets/loading.svg') 0/40px no-repeat;
-        transform: rotate(720deg);
+@keyframes toggle-bg {
+    50% {
+        width: 60px;
+        background: rgb(47, 107, 224);
     }
 
     100% {
-        background: url('./assets/success.svg') 0/40px no-repeat;
-        transform: rotate(1080deg);
+        width: 150px;
+        background: rgb(219, 73, 72);
+    }
+
+}
+
+.pay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 60px;
+}
+
+
+.canceled {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button.active>.pay span {
+    animation: word-out 0.3s forwards ease-out;
+}
+
+
+.canceled span {
+    transform: translateY(200%);
+}
+
+.button.active>.canceled span {
+    animation: word-in 0.3s forwards ease-in;
+}
+
+
+.button.active>.canceled {
+    animation-delay: 1s !important;
+    animation: shake 1s;
+}
+
+@keyframes word-out {
+    100% {
+        transform: translateY(200%);
     }
 }
 
-@keyframes toggle {
-    0% {
-        width: 150px;
-        height: 60px;
-        background: rgb(65, 180, 208);
+@keyframes word-in {
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes shake {
+    10% {
+        transform: translate(-60%, -50%);
+    }
+
+    20% {
+        transform: translate(-40%, -50%);
+    }
+
+    30% {
+        transform: translate(-60%, -50%);
+    }
+
+    40% {
+        transform: translate(-40%, -50%);
+    }
+
+    45% {
+        transform: translate(-45%, -50%);
     }
 
     50% {
-        width: 60px;
-        height: 60px;
-        background: rgb(65, 180, 208);
+        transform: translate(-55%, -50%);
     }
 
-    90% {
-        background: rgb(65, 180, 208);
-    }
-
-    100% {
-        width: 60px;
-        height: 60px;
-        background: rgb(84, 196, 151);
+    55% {
+        transform: translate(-50%, -50%);
     }
 }

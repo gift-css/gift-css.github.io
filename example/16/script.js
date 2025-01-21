@@ -1,10 +1,14 @@
 const button = document.querySelector('.button')
-let active = false
+const paysWords = document.querySelectorAll('.pay span')
+const canceledWords = document.querySelectorAll('.canceled span')
 button.addEventListener('click', () => {
-  if (!active) {
-    active = true
-    button.classList.add('active')
-  }
+  paysWords.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`
+  })
+  canceledWords.forEach((item, index) => {
+    item.style.animationDelay = `${index * 0.1}s`
+  })
+  button.classList.add('active')
 })
 
 // reset
