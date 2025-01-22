@@ -1,6 +1,6 @@
-# special-css
+# Gift CSS
 
-- 目标：CSS 效果收留仓库
+- 目标： 尽可能多的收集或实现CSS效果
 
 ## Commit Type
 
