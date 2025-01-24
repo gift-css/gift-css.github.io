@@ -26,7 +26,6 @@ body {
     width: 150px;
     height: 60px;
     background: rgb(47, 107, 224);
-    /* background: rgb(219, 73, 72); */
     border-radius: 30px;
     letter-spacing: 2px;
     overflow: hidden;
@@ -112,27 +111,27 @@ body {
 
 @keyframes shake {
     10% {
-        transform: translate(-60%, -50%);
+        transform: translate(-55%, -50%);
     }
 
     20% {
-        transform: translate(-40%, -50%);
-    }
-
-    30% {
-        transform: translate(-60%, -50%);
-    }
-
-    40% {
-        transform: translate(-40%, -50%);
-    }
-
-    45% {
         transform: translate(-45%, -50%);
     }
 
-    50% {
+    30% {
         transform: translate(-55%, -50%);
+    }
+
+    40% {
+        transform: translate(-45%, -50%);
+    }
+
+    45% {
+        transform: translate(-53%, -50%);
+    }
+
+    50% {
+        transform: translate(-48%, -50%);
     }
 
     55% {
