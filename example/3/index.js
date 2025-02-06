@@ -1,10 +1,13 @@
+const imgMap = [
+  'https://file.sio2.live/i/2025/02/06/otr7s3.jpg',
+  'https://file.sio2.live/i/2025/02/06/otr6n8.jpg',
+  'https://file.sio2.live/i/2025/02/06/otr794.jpg',
+];
 // 轮播
 function next(wrap) {
   const item1 = wrap.querySelector('li');
   wrap.removeChild(item1);
-  const newBanner = createBanner(
-    `./img/${Math.floor(3 * Math.random() + 1)}.jpg`
-  );
+  const newBanner = createBanner(imgMap[Math.floor(3 * Math.random())]);
   wrap.appendChild(newBanner);
 }
 // 创建banner
@@ -20,7 +23,7 @@ function createBanner(src) {
 (function loop() {
   const wrap = document.querySelector('.banner__wrap');
   for (let i = 0; i < 17; i++) {
-    wrap.appendChild(createBanner(`./img/${(i % 3) + 1}.jpg`));
+    wrap.appendChild(createBanner(imgMap[i % 3]));
   }
   setInterval(() => {
     next(wrap);

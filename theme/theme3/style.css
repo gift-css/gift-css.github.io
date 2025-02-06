@@ -109,6 +109,8 @@ html {
   border-radius: 0 8px 8px 0;
   overflow: hidden;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .main__container__content__top{
   background-color: #292929;
@@ -121,7 +123,7 @@ html {
   background-color: #1e1e1e;
 }
 .main__container__content__top__button{
-  padding: 4px;
+  padding: 4px 8px;
   background-color: #171717;
   color: #e5e7eb;
   font-weight: 600;
@@ -142,13 +144,24 @@ html {
 }
 .html-icon{
   color: #e74d4d;
-  font-size: 18px;
+  font-size: 22px;
 }
-
-
 .css-icon{
   color: #2980b9;
-  font-size: 18px;
+  font-size: 22px;
+}
+.js-icon{
+  color: #f4d03f;
+  font-size: 22px;
+}
+.html-icon-label{
+  order: 1;
+}
+.css-icon-label{
+  order: 2;
+}
+.js-icon-label{
+  order: 3;
 }
 #code-display{
   color: #fff;
@@ -158,4 +171,22 @@ html {
   font-family: monospace;
   padding: 1em;
   overflow-y: auto;
+}
+
+#code-display::-webkit-scrollbar {
+  width: 8px;
+}
+
+#code-display::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 4px;
+}
+
+#code-display::-webkit-scrollbar-thumb {
+  background: #4a4a4a;
+  border-radius: 4px;
+}
+
+#code-display::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

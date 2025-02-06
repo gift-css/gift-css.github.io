@@ -1,13 +1,12 @@
-body {
-    font-family: 'Arial', sans-serif;
+/* .example-wrap{
+   font-family: 'Arial', sans-serif;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: #f0f0f0; */
 }
-
+ */
 .card {
     background: white;
     border-radius: 15px;
@@ -17,7 +16,7 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-
+    margin: 0 auto;
     /* 平滑滑动效果 */
 }
 

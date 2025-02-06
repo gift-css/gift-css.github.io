@@ -26,12 +26,61 @@ function setupCodeTypeListener() {
   });
 }
 
-// 根据示例是否有js文件，动态更新 code-type 选项（增加或移除 js 选项）
-function updateCodeTypeOptions(jsExists) {
+// 根据示例是否有css、js文件，动态更新 code-type 选项（增加或移除 js 选项）
+function updateCodeTypeOptions(jsExists, cssExists) {
   const topContainer = document.querySelector('.main__container__content__top');
+
+  // 处理 CSS 选项
+  let cssRadio = document.getElementById('css');
+  if (cssExists) {
+    if (!cssRadio) {
+      cssRadio = document.createElement('input');
+      cssRadio.type = 'radio';
+      cssRadio.name = 'code-type';
+      cssRadio.id = 'css';
+      cssRadio.className = 'component-right-radio';
+      cssRadio.hidden = true;
+      cssRadio.addEventListener('change', updateCodeDisplay);
+
+      const cssLabel = document.createElement('label');
+      cssLabel.setAttribute('for', 'css');
+      cssLabel.className =
+        'main__container__content__top__button css-icon-label';
+      cssLabel.style.order = 2;
+
+      const cssIcon = document.createElement('div');
+      cssIcon.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="1em" height="1em" class="css-icon">
+          <path fill="none" d="M0 0h24v24H0z"></path>
+          <path fill="currentColor" d="M5 3l-.65 3.34h13.59L17.5 8.5H3.92l-.66 3.33h13.59l-.76 3.81-5.48 1.81-4.75-1.81.33-1.64H2.85l-.79 4 7.85 3 9.05-3 1.2-6.03.24-1.21L21.94 3z"></path>
+        </svg>
+      `;
+
+      const cssText = document.createElement('div');
+      cssText.className = 'main__container__content__top__button__text';
+      cssText.textContent = 'CSS';
+
+      cssLabel.appendChild(cssIcon);
+      cssLabel.appendChild(cssText);
+
+      topContainer.appendChild(cssRadio);
+      topContainer.appendChild(cssLabel);
+    }
+  } else if (cssRadio) {
+    const cssLabel = cssRadio.nextElementSibling;
+    cssRadio.remove();
+    if (cssLabel) cssLabel.remove();
+    if (
+      document.querySelector('input[name="code-type"]:checked').id === 'css'
+    ) {
+      document.getElementById('html').checked = true;
+      updateCodeDisplay();
+    }
+  }
+
+  // 处理 JS 选项
   let jsRadio = document.getElementById('js');
   if (jsExists) {
-    // 如果不存在，则新增 js 选项
     if (!jsRadio) {
       jsRadio = document.createElement('input');
       jsRadio.type = 'radio';
@@ -41,40 +90,32 @@ function updateCodeTypeOptions(jsExists) {
       jsRadio.hidden = true;
       jsRadio.addEventListener('change', updateCodeDisplay);
 
-      // 创建对应的 label (可自行增加 svg 图标，这里以简单文本示例)
       const jsLabel = document.createElement('label');
       jsLabel.setAttribute('for', 'js');
-      jsLabel.className = 'main__container__content__top__button';
+      jsLabel.className = 'main__container__content__top__button js-icon-label';
+      jsLabel.style.order = 3;
+      const jsIcon = document.createElement('div');
+      jsIcon.innerHTML = `
+        <svg class="js-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M238.592 155.648H399.36v450.56C399.36 809.984 302.08 880.64 146.432 880.64c-37.888 0-87.04-6.144-118.784-17.408l18.432-130.048c22.528 7.168 51.2 12.288 82.944 12.288 67.584 0 110.592-30.72 110.592-141.312V155.648h-1.024z m301.056 547.84c41.984 22.528 110.592 44.032 179.2 44.032 73.728 0 113.664-30.72 113.664-78.848 0-43.008-33.792-69.632-119.808-99.328-118.784-40.96-197.632-107.52-197.632-211.968C515.072 235.52 617.472 143.36 785.408 143.36c81.92 0 139.264 16.384 182.272 35.84L931.84 308.224c-27.648-13.312-79.872-33.792-148.48-33.792-69.632 0-103.424 32.768-103.424 68.608 0 45.056 38.912 65.536 132.096 101.376 125.952 46.08 184.32 112.64 184.32 214.016 0 119.808-91.136 221.184-286.72 221.184-81.92 0-161.792-22.528-201.728-44.032l31.744-132.096z" fill="#F4DE51" p-id="4219"></path></svg>
+      `;
 
-      // 可选：增加简单的 js 图标
-      const iconSpan = document.createElement('span');
-      iconSpan.className = 'js-icon';
-      iconSpan.textContent = 'JS';
+      const jsText = document.createElement('div');
+      jsText.className = 'main__container__content__top__button__text';
+      jsText.textContent = 'JavaScript';
 
-      const textDiv = document.createElement('div');
-      textDiv.className = 'main__container__content__top__button__text';
-      textDiv.textContent = 'JS';
-
-      jsLabel.appendChild(iconSpan);
-      jsLabel.appendChild(textDiv);
+      jsLabel.appendChild(jsIcon);
+      jsLabel.appendChild(jsText);
 
       topContainer.appendChild(jsRadio);
       topContainer.appendChild(jsLabel);
     }
-  } else {
-    // 如果当前模块没有js，移除已存在的 js 选项（若有）
-    if (jsRadio) {
-      const jsLabel = jsRadio.nextElementSibling;
-      jsRadio.remove();
-      if (jsLabel) jsLabel.remove();
-      // 如果当前选中的是 js，则切换回 html
-      const currentSelected = document.querySelector(
-        'input[name="code-type"]:checked'
-      );
-      if (currentSelected && currentSelected.id === 'js') {
-        document.getElementById('html').checked = true;
-        updateCodeDisplay();
-      }
+  } else if (jsRadio) {
+    const jsLabel = jsRadio.nextElementSibling;
+    jsRadio.remove();
+    if (jsLabel) jsLabel.remove();
+    if (document.querySelector('input[name="code-type"]:checked').id === 'js') {
+      document.getElementById('html').checked = true;
+      updateCodeDisplay();
     }
   }
 }
@@ -95,26 +136,8 @@ async function loadModule(key) {
     const htmlResponse = await fetch(htmlPath);
     let htmlText = await htmlResponse.text();
 
-    // 利用 DOMParser 解析 HTML 内容，并修改相对路径（这里主要针对图片）
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, 'text/html');
-
-    // 调整所有 img 标签的 src 属性，确保相对路径的图片能加载（例如 "./img/xxx.jpg" 转为 "../../example/{key}/img/xxx.jpg"）
-    const imgs = doc.querySelectorAll('img');
-    imgs.forEach((img) => {
-      let src = img.getAttribute('src');
-      if (
-        src &&
-        !src.startsWith('http') &&
-        !src.startsWith('//') &&
-        !src.startsWith('data:')
-      ) {
-        src = src.replace(/^\.\//, '');
-        img.setAttribute('src', `../../example/${key}/${src}`);
-      }
-    });
-
-    // 如果需要，也可以对其他资源链接进行类似处理
 
     // 这里可直接使用 <body> 里的内容作为预览区域展示内容
     const previewContent = doc.body.innerHTML;
@@ -155,6 +178,10 @@ async function loadModule(key) {
     // 创建预览容器，将 HTML 预览内容插入
     const previewWrapper = document.createElement('div');
     previewWrapper.style.width = '100%';
+    previewWrapper.style.height = '100%';
+    previewWrapper.style.display = 'flex';
+    previewWrapper.style.justifyContent = 'center';
+    previewWrapper.style.alignItems = 'center';
     previewWrapper.innerHTML = previewContent;
 
     // 如果有 CSS，则创建 <style> 标签追加到预览容器中
@@ -166,18 +193,19 @@ async function loadModule(key) {
 
     // 如果存在 JS 文件，则创建 <script> 标签，将 JS 代码追加到预览容器，这样就能引入并执行 js 文件
     if (jsExists) {
+      // 将 jsText 包裹在 IIFE 内
+      const isolatedJs = `;(function(){\n${jsText}\n})();`;
       const scriptTag = document.createElement('script');
-      scriptTag.textContent = jsText;
+      scriptTag.textContent = isolatedJs;
       previewWrapper.appendChild(scriptTag);
     }
-
     modelContainer.appendChild(previewWrapper);
 
     // 更新代码展示区域
     updateCodeDisplay();
 
     // 根据当前模块是否存在 JS，更新 code-type 选项（增加或移除 js 选项）
-    updateCodeTypeOptions(jsExists);
+    updateCodeTypeOptions(jsExists, cssText);
   } catch (error) {
     console.error('加载模块时出错:', error);
   }
@@ -209,6 +237,7 @@ function initLeftItems() {
     label.textContent = exampleConfig[key];
     // 点击 label 时，触发加载函数，并将 code-type 强制切换为 html
     label.addEventListener('click', () => {
+      console.log('点击label', key);
       loadModule(key);
     });
 
