@@ -127,7 +127,6 @@ async function loadModule(key) {
 
   // 构造各文件路径（相对于 theme/theme3 目录）
   const htmlPath = `../../example/${key}/index.html`;
-  // 先尝试 index.css，不存在则尝试 style.css
   let cssPath = `../../example/${key}/index.css`;
   const jsPath = `../../example/${key}/index.js`;
 
@@ -139,9 +138,8 @@ async function loadModule(key) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(htmlText, 'text/html');
 
-    // 这里可直接使用 <body> 里的内容作为预览区域展示内容
+    // 使用 <body> 内的内容作为预览展示内容
     const previewContent = doc.body.innerHTML;
-    // 为了代码展示区域，保留原始的 HTML（完整内容）
     currentHtmlContent = htmlText;
 
     // 获取 CSS 内容（先 index.css，不存在则尝试 style.css）
@@ -166,45 +164,45 @@ async function loadModule(key) {
     }
     currentJsContent = jsText;
 
-    // 渲染预览区域（.main__container__model）
+    // 渲染预览区域：只更新 .preview-wrapper，保留颜色选择器
     const modelContainer = document.querySelector('.main__container__model');
-    // 先清除上次内容
-    modelContainer.innerHTML = '';
-    // 利用 Flexbox 实现居中显示
-    modelContainer.style.display = 'flex';
-    modelContainer.style.justifyContent = 'center';
-    modelContainer.style.alignItems = 'center';
-
-    // 创建预览容器，将 HTML 预览内容插入
-    const previewWrapper = document.createElement('div');
-    previewWrapper.style.width = '100%';
-    previewWrapper.style.height = '100%';
+    let previewWrapper = modelContainer.querySelector('.preview-wrapper');
+    if (!previewWrapper) {
+      previewWrapper = document.createElement('div');
+      previewWrapper.className = 'preview-wrapper';
+      modelContainer.appendChild(previewWrapper);
+    } else {
+      previewWrapper.innerHTML = '';
+    }
+    // 设置预览容器样式
     previewWrapper.style.display = 'flex';
     previewWrapper.style.justifyContent = 'center';
     previewWrapper.style.alignItems = 'center';
+    previewWrapper.style.width = '100%';
+    previewWrapper.style.height = '100%';
+
+    // 将 HTML 预览内容插入预览容器
     previewWrapper.innerHTML = previewContent;
 
-    // 如果有 CSS，则创建 <style> 标签追加到预览容器中
+    // 如果存在 CSS，则添加 <style> 标签到预览容器中
     if (cssText) {
       const styleTag = document.createElement('style');
       styleTag.textContent = cssText;
       previewWrapper.appendChild(styleTag);
     }
 
-    // 如果存在 JS 文件，则创建 <script> 标签，将 JS 代码追加到预览容器，这样就能引入并执行 js 文件
+    // 如果存在 JS，则添加 <script> 标签并执行 JS 代码
     if (jsExists) {
-      // 将 jsText 包裹在 IIFE 内
       const isolatedJs = `;(function(){\n${jsText}\n})();`;
       const scriptTag = document.createElement('script');
       scriptTag.textContent = isolatedJs;
       previewWrapper.appendChild(scriptTag);
     }
-    modelContainer.appendChild(previewWrapper);
 
     // 更新代码展示区域
     updateCodeDisplay();
 
-    // 根据当前模块是否存在 JS，更新 code-type 选项（增加或移除 js 选项）
+    // 根据当前模块是否存在 JS，更新 code-type 选项
     updateCodeTypeOptions(jsExists, cssText);
   } catch (error) {
     console.error('加载模块时出错:', error);
@@ -252,18 +250,16 @@ function main() {
   initLeftItems();
   setupCodeTypeListener();
 
-  // // 在 .main__container__content 内添加代码显示区域（如果不存在）
-  // const contentContainer = document.querySelector('.main__container__content');
-  // let codeDisplay = document.getElementById('code-display');
-  // if (!codeDisplay) {
-  //   codeDisplay = document.createElement('div');
-  //   codeDisplay.id = 'code-display';
-  //   // 添加些基础样式
-  //   codeDisplay.style.whiteSpace = 'pre-wrap';
-  //   codeDisplay.style.fontFamily = 'monospace';
-  //   codeDisplay.style.padding = '1em';
-  //   contentContainer.appendChild(codeDisplay);
-  // }
+  // 设置背景颜色选择器的监听器
+  const bgColorPicker = document.getElementById('bg-color-picker');
+  if (bgColorPicker) {
+    bgColorPicker.addEventListener('input', function (e) {
+      const selectedColor = e.target.value;
+      // 修改 main__container__model 的背景颜色
+      document.querySelector('.main__container__model').style.backgroundColor =
+        selectedColor;
+    });
+  }
 
   // 默认加载列表中的第一个模块
   const keys = Object.keys(exampleConfig)

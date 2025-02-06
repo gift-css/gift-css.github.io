@@ -98,7 +98,7 @@ html {
 }
 .main__container__model{
   flex: 1;
-  background-color: #e8e8e8;
+  background-color: #d4d8d8;
   border-radius: 8px 0 0 8px;
   overflow: hidden;
   position: relative;
