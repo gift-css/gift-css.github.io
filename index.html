@@ -1,23 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gift CSS</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <script>
-        fetch('/theme/theme1/index.html')
-            .then(response => response.text())
-            .then(data => {
-                document.body.innerHTML = data;
-            })
-            .catch(error => {
-                console.error('fetch error:', error);
-            });
+      fetch('/theme/theme3/index.html')
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.innerHTML = data;
+        })
+        .catch((error) => {
+          console.error('fetch error:', error);
+        });
     </script>
-</body>
-
+  </body>
 </html>
