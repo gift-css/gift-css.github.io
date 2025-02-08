@@ -44,3 +44,4 @@ revert：代码回退
 | 14   | Glitter Button Animation                  |
 | 15   | Next Button Animation                     |
 | 16   | Pay Canceled Button Animation             |
+| 17   | Free Button Animation Animation           |
