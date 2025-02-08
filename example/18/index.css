@@ -21,7 +21,6 @@ body {
 .button {
     width: 200px;
     height: 50px;
-    background: #fff;
     position: relative;
     display: flex;
     justify-content: center;
