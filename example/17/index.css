@@ -19,8 +19,44 @@ body {
 
 
 .button {
-    width: 200px;
+    width: 250px;
     height: 50px;
     border-radius: 30px;
     background-color: rgb(33, 206, 204);
+    position: relative;
+    overflow: hidden;
+}
+
+.ray-wrap {
+    position: absolute;
+    display: flex;
+    transform: rotate(30deg);
+    animation: move 2s infinite;
+    height: 160%;
+}
+
+
+@keyframes move {
+    0% {
+        top: -30%;
+        left: -25%;
+    }
+
+    100% {
+        top: -30%;
+        left: 125%;
+    }
+}
+
+.ray1 {
+    width: 20px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.ray2 {
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.4);
+    margin-left: 7px;
 }
