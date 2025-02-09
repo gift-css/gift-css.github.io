@@ -1,6 +1,6 @@
 # Gift CSS
 
-- 目标： 尽可能多的收集或实现CSS效果
+- 目标： 尽可能多的收集或实现 CSS 效果
 
 ## Commit Type
 
@@ -30,8 +30,8 @@ revert：代码回退
 
 | 序号 | 案例                                      |
 | ---- | ----------------------------------------- |
-| 1    | 脉冲波纹催眠动画特效                      |
-| 3    | 头像轮播                                  |
+| 1    | Concentric Pulse Layers                   |
+| 3    | Photo Carousel                            |
 | 4    | animated-countdown                        |
 | 6    | 常规 loading                              |
 | 7    | 抛出线条式 loading                        |
@@ -44,4 +44,5 @@ revert：代码回退
 | 14   | Glitter Button Animation                  |
 | 15   | Next Button Animation                     |
 | 16   | Pay Canceled Button Animation             |
-| 17   | Free Button Animation Animation           |
+| 17   | Button Ray Animation                      |
+| 18   | Button Snake Animation                    |

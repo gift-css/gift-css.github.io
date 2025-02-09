@@ -1,7 +1,7 @@
 // 文件夹名称：项目名称
 export const exampleConfig = {
-  '1': "脉冲波纹催眠动画特效",
-  '3': "头像轮播",
+  '1': "Concentric Pulse Layers", // 多层同心脉冲扩散
+  '3': "Photo Carousel", // 照片轮播
   '4': "animated-countdown",
   '6': "常规loading",
   '7': "抛出线条式loading",
@@ -14,5 +14,6 @@ export const exampleConfig = {
   '14': "Glitter Button Animation",
   '15': "Next Button Animation",
   '16': "Pay Canceled Button Animation",
-  '17': "Free Button Animation Animation",
+  '17': "Button Ray Animation",
+  '18': "Button Snake Animation",
 };
