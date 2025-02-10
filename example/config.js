@@ -16,4 +16,5 @@ export const exampleConfig = {
   '16': "Pay Canceled Button Animation",
   '17': "Button Ray Animation",
   '18': "Button Snake Animation",
+  '19': "Hi Button Animation",
 };
