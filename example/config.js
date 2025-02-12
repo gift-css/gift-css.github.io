@@ -1,6 +1,7 @@
 // 文件夹名称：项目名称
 export const exampleConfig = {
   '1': "Concentric Pulse Layers", // 多层同心脉冲扩散
+  '2': "Submit Button Animation", 
   '3': "Photo Carousel", // 照片轮播
   '4': "animated-countdown",
   '6': "常规loading",

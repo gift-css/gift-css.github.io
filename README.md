@@ -31,6 +31,7 @@ revert：代码回退
 | 序号 | EngLish Name                              | 中文名字             |
 | ---- | ----------------------------------------- | -------------------- |
 | 1    | Concentric Pulse Layers                   | 多层同心脉冲扩散     |
+| 2    | Submit Button Animation                   |                      |
 | 3    | Photo Carousel                            | 照片轮播             |
 | 4    | animated-countdown                        |                      |
 | 6    |                                           | 常规加载动画         |
