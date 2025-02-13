@@ -3,7 +3,7 @@ export const exampleConfig = {
   '1': "Concentric Pulse Layers", // 多层同心脉冲扩散
   '2': "Animated Submit-to-Success Button Transition",  // 灵动提交成功按钮动画
   '3': "Photo Carousel", // 照片轮播
-  '4': "animated-countdown",
+  '4': "CountdownTransitionPanel", // 倒计时GO按钮动画
   '5': "Width-Shift Animated Button", // 宽变灵动按钮
   '6': "常规loading",
   '7': "抛出线条式loading",

@@ -33,7 +33,7 @@ revert：代码回退
 | 1    | Concentric Pulse Layers                      | 多层同心脉冲扩散     |
 | 2    | Animated Submit-to-Success Button Transition | 灵动提交成功按钮动画 |
 | 3    | Photo Carousel                               | 照片轮播             |
-| 4    | animated-countdown                           |                      |
+| 4    | CountdownTransitionPanel                     | 倒计时 GO 按钮动画   |
 | 5    | Width-Shift Animated Button                  | 宽变灵动按钮         |
 | 6    |                                              | 常规加载动画         |
 | 7    |                                              | 抛出线条式加载动画   |
