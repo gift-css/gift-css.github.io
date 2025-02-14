@@ -12,7 +12,7 @@ export const exampleConfig = {
   '10': "卡片翻转特效",
   '11': "模态窗口特效",
   '12': "伸缩效果示例",
-  '13': "Free You Tube Video Play Button Animation",
+  '13': "You Tube Video Play Button Animation", // YouTube 视频播放按钮动画
   '14': "Glitter Button Animation",
   '15': "Next Button Animation",
   '16': "Pay Canceled Button Animation",
