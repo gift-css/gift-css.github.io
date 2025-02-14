@@ -1,4 +1,3 @@
-
 .example-wrap {
     font-family: Arial, sans-serif;
     display: flex;
@@ -11,7 +10,6 @@
 .wrap {
     position: relative;
     width: 160px;
-
     height: 40px;
     border-radius: 20px;
     overflow: hidden;

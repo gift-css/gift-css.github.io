@@ -43,7 +43,7 @@ revert：代码回退
 | 11   |                                              | 模态窗口特效             |
 | 12   |                                              | 伸缩效果示例             |
 | 13   | You Tube Video Play Button Animation         | YouTube 视频播放按钮动画 |
-| 14   | Glitter Button Animation                     |                          |
+| 14   | Button-Halo-Pulse-Background                 | 按钮流光脉冲背景特效     |
 | 15   | Next Button Animation                        |                          |
 | 16   | Pay Canceled Button Animation                |                          |
 | 17   | Button Ray Animation                         |                          |
