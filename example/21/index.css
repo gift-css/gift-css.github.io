@@ -40,10 +40,15 @@ body {
 }
 
 .button.active .success {
-    opacity: 1;
-    transition: opacity 1s;
+    animation: success-animation 2s ease forwards;
+    animation-delay: 4s;
 }
 
+@keyframes success-animation {
+    to {
+        opacity: 1;
+    }
+}
 
 .circle-svg {
     position: absolute;
