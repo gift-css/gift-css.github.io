@@ -17,6 +17,16 @@ body {
     height: 100%;
 }
 
+:root {
+    --speed: 1.5;
+    --button-animation-time: calc(6s / var(--speed));
+    --success-animation-time: calc(2s / var(--speed));
+    --success-animation-delay-time: calc(4s / var(--speed));
+    --circle-animation-time: calc(2s / var(--speed));
+    --circle-animation-delay-time: calc(0.5s / var(--speed));
+    --content-animation-time: calc(2s / var(--speed));
+}
+
 .button {
     width: 200px;
     height: 50px;
@@ -30,7 +40,7 @@ body {
 }
 
 .button.active {
-    animation: button-animation 6s ease forwards;
+    animation: button-animation var(--button-animation-time) ease forwards;
 }
 
 .success {
@@ -40,8 +50,8 @@ body {
 }
 
 .button.active .success {
-    animation: success-animation 2s ease forwards;
-    animation-delay: 4s;
+    animation: success-animation var(--success-animation-time) ease forwards;
+    animation-delay: var(--success-animation-delay-time);
 }
 
 @keyframes success-animation {
@@ -63,8 +73,8 @@ body {
 }
 
 .button.active .circle {
-    animation: dash 2s ease;
-    animation-delay: 0.5s;
+    animation: dash var(--circle-animation-time) ease;
+    animation-delay: var(--circle-animation-delay-time);
 }
 
 @keyframes dash {
@@ -113,11 +123,10 @@ body {
     font-weight: 700;
     color: rgb(35, 219, 215);
     user-select: none;
-
 }
 
 .button.active .content {
-    animation: content-animation 2s forwards;
+    animation: content-animation var(--content-animation-time) forwards;
 }
 
 @keyframes content-animation {
