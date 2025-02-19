@@ -44,9 +44,10 @@ revert：代码回退
 | 12   |                                              | 伸缩效果示例             |
 | 13   | You Tube Video Play Button Animation         | YouTube 视频播放按钮动画 |
 | 14   | Button-Halo-Pulse-Background                 | 按钮流光脉冲背景特效     |
-| 15   | Next Button Animation                        |                          |
+| 15   | Next Button Animation                        | Next 按钮动画            |
 | 16   | Pay Canceled Button Animation                |                          |
 | 17   | Button Ray Animation                         |                          |
 | 18   | Button Snake Animation                       |                          |
 | 19   | Hi Button Animation                          |                          |
 | 20   | Button Press Animation                       | 按钮按压动画             |
+| 21   | Circle Morph Submit                          | 圆环变形提交按钮         |
