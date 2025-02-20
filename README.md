@@ -45,7 +45,7 @@ revert：代码回退
 | 13   | You Tube Video Play Button Animation         | YouTube 视频播放按钮动画 |
 | 14   | Button-Halo-Pulse-Background                 | 按钮流光脉冲背景特效     |
 | 15   | Next Button Animation                        | Next 按钮动画            |
-| 16   | Pay Canceled Button Animation                |                          |
+| 16   | Pay Cancel Transition                        | 支付取消过度             |
 | 17   | Button Ray Animation                         |                          |
 | 18   | Button Snake Animation                       |                          |
 | 19   | Hi Button Animation                          |                          |
