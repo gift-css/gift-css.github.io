@@ -48,6 +48,6 @@ revert：代码回退
 | 16   | Pay Cancel Transition                        | 支付取消过度             |
 | 17   | LumaFlow Button                              | 光痕流钮                 |
 | 18   | Sequential Border Reveal                     | 动态边框逐显             |
-| 19   | Hi Button Animation                          |                          |
+| 19   | Hi! Square Spins Into Button                 | Hi！方块旋缩圆钮         |
 | 20   | Button Press Animation                       | 按钮按压动画             |
 | 21   | Circle Morph Submit                          | 圆环变形提交按钮         |
