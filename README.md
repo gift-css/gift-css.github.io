@@ -47,7 +47,7 @@ revert：代码回退
 | 15   | Next Button Animation                        | Next 按钮动画            |
 | 16   | Pay Cancel Transition                        | 支付取消过度             |
 | 17   | LumaFlow Button                              | 光痕流钮                 |
-| 18   | Button Snake Animation                       |                          |
+| 18   | Sequential Border Reveal                     | 动态边框逐显             |
 | 19   | Hi Button Animation                          |                          |
 | 20   | Button Press Animation                       | 按钮按压动画             |
 | 21   | Circle Morph Submit                          | 圆环变形提交按钮         |
