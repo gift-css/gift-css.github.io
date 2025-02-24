@@ -10,8 +10,6 @@ export const exampleConfig = {
   '8': "长方形进度条",
   '9': "椭圆式进度条loading",
   '10': "3D Flip Card Effect ", // 3D 卡片翻转特效
-  '11': "模态窗口特效",
-  '12': "伸缩效果示例",
   '13': "You Tube Video Play Button Animation", // YouTube 视频播放按钮动画
   '14': "Button-Halo-Pulse-Background", // 按钮流光脉冲背景特效
   '15': "Next Button Animation",  // Next 按钮动画 
