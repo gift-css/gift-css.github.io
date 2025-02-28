@@ -40,7 +40,7 @@ revert：代码回退
 | 8    |                                              | 长方形进度条             |
 | 9    |                                              | 椭圆式进度条加载动画     |
 | 10   | 3D Flip Card Effect                          | 3D 卡片翻转特效          |
-| 11   |                                              |                          |
+| 11   | Switch Transition Button                     | 开关过渡按钮             |
 | 12   |                                              |                          |
 | 13   | You Tube Video Play Button Animation         | YouTube 视频播放按钮动画 |
 | 14   | Button-Halo-Pulse-Background                 | 按钮流光脉冲背景特效     |
