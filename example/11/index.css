@@ -1,9 +1,12 @@
+/* Reset styles */
 * {
     margin: 0;
     padding: 0;
 }
 
-html {
+/* Base layout */
+html,
+body {
     width: 100%;
     height: 100%;
 }
@@ -13,77 +16,148 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
+/* Variables */
+:root {
+    --total-time: 1s;
+    --half-time: calc(var(--total-time) / 2);
+    --yellow: rgb(255, 200, 48);
+    --blue: rgb(52, 148, 255);
+}
+
+/* Button base styles */
 .button {
     width: 150px;
     height: 70px;
     border-radius: 35px;
-    background-color: rgb(255, 200, 48);
+    background-color: var(--yellow);
     display: flex;
     justify-content: space-between;
     position: relative;
+    overflow: hidden;
+}
+
+/* Common styles for indicators */
+.button .off,
+.button .on {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .button .off {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    background-color: rgb(52, 148, 255);
-    position: absolute;
-}
-
-
-.button.active .off {
-    background-color: rgb(255, 200, 48);
-    animation: off-animation 1s;
-}
-
-.button .off::after {
-    content: "";
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background-color: rgb(255, 200, 48);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    background-color: var(--yellow);
+    left: 25px;
 }
-
-.button.active .off::after {
-    background-color: rgb(52, 148, 255);
-}
-
 
 .button .on {
-    height: 70px;
-    width: 70px;
-    border-radius: 50%;
-    background-color: rgb(255, 200, 48);
-    position: absolute;
-    right: 0;
-}
-
-.button.active .on {
-    background-color: rgb(52, 148, 255);
-    z-index: 10;
-}
-
-.button .on::after {
-    content: "";
     height: 30px;
     width: 10px;
     border-radius: 10px;
-    background-color: rgb(52, 148, 255);
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    background-color: var(--blue);
+    right: 20%;
 }
 
-.button.active .on::after {
-    background-color: rgb(255, 200, 48);
+.button .bg {
+    height: 100%;
+    width: 70px;
+    border-radius: var(--border-radius);
+    background-color: var(--blue);
+    position: absolute;
+}
+
+/* Active state animations */
+.button.active {
+    .on {
+        animation: on-animation-active var(--half-time) ease-in-out forwards var(--half-time);
+    }
+
+    .off {
+        animation: off-animation-active var(--half-time) ease-in-out forwards var(--half-time);
+    }
+
+    .bg {
+        animation: bg-animation-active var(--total-time) ease-in-out forwards;
+    }
+}
+
+/* Inactive state animations */
+.button.inactive {
+    .on {
+        background-color: var(--yellow);
+        animation: on-animation-inactive var(--half-time) ease-in-out forwards var(--half-time);
+    }
+
+    .off {
+        background-color: var(--blue);
+        animation: off-animation-inactive var(--half-time) ease-in-out forwards var(--half-time);
+    }
+
+    .bg {
+        animation: bg-animation-inactive var(--total-time) ease-in-out forwards;
+    }
+}
+
+/* Keyframes */
+@keyframes on-animation-active {
+    to {
+        background-color: var(--yellow);
+    }
+}
+
+@keyframes off-animation-active {
+    to {
+        background-color: var(--blue);
+    }
+}
+
+@keyframes bg-animation-active {
+    0% {
+        width: 70px;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+    }
+
+    100% {
+        width: 70px;
+        right: 0;
+    }
+}
+
+@keyframes on-animation-inactive {
+    to {
+        background-color: var(--blue);
+    }
+}
+
+@keyframes off-animation-inactive {
+    to {
+        background-color: var(--yellow);
+    }
+}
+
+@keyframes bg-animation-inactive {
+    0% {
+        width: 70px;
+        right: 0;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+    }
+
+    100% {
+        width: 70px;
+        left: 0;
+    }
 }
