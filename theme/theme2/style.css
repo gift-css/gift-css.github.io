@@ -6,28 +6,43 @@ html {
 }
 
 .main {
-    /* display: flex; */
     width: 100%;
     height: 100%;
+    display: flex;
 }
 
 :root {
-    --nav-weidth: 200px;
+    --nav-width: 250px; /* 调整导航栏宽度 */
     --main-height: 100%;
 }
 
 .main__nav {
-    width: var(--nav-weidth);
+    width: var(--nav-width);
     min-height: var(--main-height);
-    background: #ccc;
+    background: #222; /* 更改背景颜色 */
     position: fixed;
     left: 0;
     top: 0;
+    padding: 20px 0; /* 添加内边距 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+}
+
+.main__nav__item {
+    padding: 15px 20px; /* 调整内边距 */
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+.main__nav__item:hover {
+    background-color: #333; /* 添加悬停效果 */
 }
 
 .main__container {
-    width: 100%;
+    width: calc(100% - var(--nav-width));
     height: var(--main-height);
+    margin-left: var(--nav-width);
 }
 
 .main__container h2 {
