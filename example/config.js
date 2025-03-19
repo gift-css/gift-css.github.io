@@ -1,3 +1,11 @@
+/*
+ * @Author: coffeemil ecalm5@gmail.com
+ * @Date: 2025-02-10 16:58:04
+ * @LastEditors: coffeemil ecalm5@gmail.com
+ * @LastEditTime: 2025-03-17 14:07:24
+ * @FilePath: \gift-css\example\config.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // 文件夹名称：项目名称
 export const exampleConfig = {
   '1': "Concentric Pulse Layers", // 多层同心脉冲扩散
@@ -11,6 +19,7 @@ export const exampleConfig = {
   '9': "椭圆式进度条loading",
   '10': "3D Flip Card Effect", // 3D 卡片翻转特效
   '11': "Switch Transition Button", // 开关过渡按钮
+  '12': "Rounded Rectangular Button with Line Animation", // 带线条动画的圆角长方形按钮
   '13': "You Tube Video Play Button Animation", // YouTube 视频播放按钮动画
   '14': "Button-Halo-Pulse-Background", // 按钮流光脉冲背景特效
   '15': "Next Button Animation",  // Next 按钮动画 
