@@ -17,16 +17,6 @@ body {
     height: 100%;
 }
 
-:root {
-    /* speed */
-    --speed: 2;
-    --submit-out-time: calc(0.5s / var(--speed));
-    --success-in-time: calc(1s / var(--speed));
-    --progress-time: calc(2s / var(--speed));
-    --change-background-time: calc(var(--submit-out-time) + var(--progress-time));
-    --submit-change-background-time: calc(var(--change-background-time) / 5);
-}
-
 .submit {
     width: 100%;
     height: 100%;
@@ -68,26 +58,25 @@ body {
     inset: 0 100% 0 0;
     border-radius: inherit;
     background: rgb(206, 95, 216);
-    animation: progress-bar var(--progress-time) forwards;
-    animation-delay: calc(var(--submit-change-background-time) + var(--submit-out-time))
+    animation: progress-bar 1s forwards;
+    animation-delay: 0.35s;
 }
 
 .button.active>.submit {
-    animation: submit-out ease-out var(--submit-out-time) forwards;
+    animation: submit-out ease-out 0.25s forwards;
 }
 
 .button.active>.success {
-    animation: success-in var(--success-in-time) forwards;
-    animation-delay: calc(var(--change-background-time) + var(--submit-change-background-time));
+    animation: success-in 0.5s forwards;
+    animation-delay: 1.35s;
 }
 
 .button.active {
-    animation: background-change ease-in var(--change-background-time);
-    animation-delay: var(--submit-out-time);
+    animation: background-change ease-in 1.25s;
+    animation-delay: 0.25s;
 }
 
 @keyframes background-change {
-
     20%,
     100% {
         background: #fff;
