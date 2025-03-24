@@ -3,103 +3,128 @@ html {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
+    background: #171717;
 }
 
 .main {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: column;
+    background-color: #171717;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px;
 }
 
-:root {
-    --nav-width: 250px; /* 调整导航栏宽度 */
-    --main-height: 100%;
-}
-
+/* 导航栏样式 */
 .main__nav {
-    width: var(--nav-width);
-    min-height: var(--main-height);
-    background: #222; /* 更改背景颜色 */
-    position: fixed;
-    left: 0;
-    top: 0;
-    padding: 20px 0; /* 添加内边距 */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    width: 100%;
+    height: 60px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
 .main__nav__item {
-    padding: 15px 20px; /* 调整内边距 */
-    color: #fff;
-    font-size: 16px;
+    padding: 8px 16px;
+    color: #e5e7eb;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease; /* 添加过渡效果 */
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-right: 20px;
 }
 
 .main__nav__item:hover {
-    background-color: #333; /* 添加悬停效果 */
+    background-color: #2d2d2d;
 }
 
-.main__container {
-    width: calc(100% - var(--nav-width));
-    height: var(--main-height);
-    margin-left: var(--nav-width);
-}
-
-.main__container h2 {
-    color: #fff;
-}
-
-/* 新增搜索样式 */
+/* 搜索框样式 */
 .search-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
+    margin: 20px;
 }
 
 #search-input {
-    padding: 8px 12px;
-    border-radius: 20px;
-    border: 1px solid #444;
-    background: #333;
-    color: white;
-    width: 250px;
-}
-
-/* 优化卡片加载效果 */
-.main__container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* 元素之间的间距 */
-}
-
-.example__wrap {
-    width: 250px;
-    height: 300px;
-    border: 1px solid #ccc;
-    display: flex; /* 使用 flex 布局 */
-    align-items: center; /* 垂直居中 */
-    justify-content: center; /* 水平居中 */
-}
-
-.example__wrap::part(shadow-content) {
     width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 400px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #222;
+    color: #e5e7eb;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
-/* 如果需要绝对定位的元素 */
-.example__wrap::part(shadow-content) .absolute-element {
-    position: absolute;
-    top: 0;
-    left: 0;
+#search-input:focus {
+    border-color: #444;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
+#search-input::placeholder {
+    color: #666;
+}
+
+/* 主容器样式 */
+.main__container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* 示例卡片样式 */
+.example__wrap {
+    height: 300px;
+    background: #222;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #333;
+}
+
+.example__wrap:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    border-color: #444;
+}
+
+/* 滚动条样式 */
+.main__container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main__container::-webkit-scrollbar-track {
+    background: #171717;
+}
+
+.main__container::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.main__container::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* 加载占位符样式 */
 .loading-placeholder {
     width: 100%;
-    height: 200px;
-    background: #2a2a2a;
-    border-radius: 8px;
+    height: 100%;
+    background: linear-gradient(110deg, #222 8%, #2a2a2a 18%, #222 33%);
+    border-radius: 12px;
+    background-size: 200% 100%;
+    animation: loading 1.5s linear infinite;
+}
+
+@keyframes loading {
+    to {
+        background-position: -200% 0;
+    }
 }
