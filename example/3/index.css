@@ -1,0 +1,155 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Base layout */
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Button base styles */
+.button {
+    width: 150px;
+    height: 70px;
+    border-radius: 35px;
+    background-color: rgb(255, 200, 48);
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Common styles for indicators */
+.button .off,
+.button .on {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.button .off {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgb(255, 200, 48);
+    left: 25px;
+}
+
+.button .on {
+    height: 30px;
+    width: 10px;
+    border-radius: 10px;
+    background-color: rgb(52, 148, 255);
+    right: 20%;
+}
+
+.button .bg {
+    height: 100%;
+    width: 70px;
+    border-radius: 35px;
+    background-color: rgb(52, 148, 255);
+    position: absolute;
+}
+
+/* Active state animations */
+.button.active {
+    .on {
+        animation: on-animation-active 0.5s ease-in-out forwards 0.5s;
+    }
+
+    .off {
+        animation: off-animation-active 0.5s ease-in-out forwards 0.5s;
+    }
+
+    .bg {
+        animation: bg-animation-active 1s ease-in-out forwards;
+    }
+}
+
+/* Inactive state animations */
+.button.inactive {
+    .on {
+        background-color: rgb(255, 200, 48);
+        animation: on-animation-inactive 0.5s ease-in-out forwards 0.5s;
+    }
+
+    .off {
+        background-color: rgb(52, 148, 255);
+        animation: off-animation-inactive 0.5s ease-in-out forwards 0.5s;
+    }
+
+    .bg {
+        animation: bg-animation-inactive 1s ease-in-out forwards;
+    }
+}
+
+/* Keyframes */
+@keyframes on-animation-active {
+    to {
+        background-color: rgb(255, 200, 48);
+    }
+}
+
+@keyframes off-animation-active {
+    to {
+        background-color: rgb(52, 148, 255);
+    }
+}
+
+@keyframes bg-animation-active {
+    0% {
+        width: 70px;
+        left: 0;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+    }
+
+    100% {
+        width: 70px;
+        right: 0;
+    }
+}
+
+@keyframes on-animation-inactive {
+    to {
+        background-color: rgb(52, 148, 255);
+    }
+}
+
+@keyframes off-animation-inactive {
+    to {
+        background-color: rgb(255, 200, 48);
+    }
+}
+
+@keyframes bg-animation-inactive {
+    0% {
+        width: 70px;
+        right: 0;
+    }
+
+    50% {
+        width: 100%;
+        right: 0;
+    }
+
+    100% {
+        width: 70px;
+        left: 0;
+    }
+}

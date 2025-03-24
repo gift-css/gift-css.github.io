@@ -1,12 +1,9 @@
-/* Reset styles */
 * {
     margin: 0;
     padding: 0;
 }
 
-/* Base layout */
-html,
-body {
+html {
     width: 100%;
     height: 100%;
 }
@@ -16,148 +13,136 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Variables */
-:root {
-    --total-time: 1s;
-    --half-time: calc(var(--total-time) / 2);
-    --yellow: rgb(255, 200, 48);
-    --blue: rgb(52, 148, 255);
-}
-
-/* Button base styles */
-.button {
-    width: 150px;
-    height: 70px;
-    border-radius: 35px;
-    background-color: var(--yellow);
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Common styles for indicators */
-.button .off,
-.button .on {
-    content: "";
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.button .off {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: var(--yellow);
-    left: 25px;
-}
-
-.button .on {
-    height: 30px;
-    width: 10px;
-    border-radius: 10px;
-    background-color: var(--blue);
-    right: 20%;
-}
-
-.button .bg {
+    width: 100%;
     height: 100%;
-    width: 70px;
-    border-radius: 35px;
-    background-color: var(--blue);
+}
+
+.button {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content {
+    /* animation: show 1s infinite; */
+    /* background: red; */
+    position: relative;
+    /* overflow: hidden; */
+    animation: rotate 2.5s forwards;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    font-weight: 700;
+}
+
+@keyframes rotate {
+    0% {
+        width: 300px;
+        height: 300px;
+    }
+
+    80% {
+        width: 300px;
+        height: 300px;
+        transform: rotate(720deg);
+    }
+
+    90% {
+        width: 30px;
+        height: 30px;
+        background: transparent;
+        color: transparent;
+        box-shadow: none;
+    }
+
+    100% {
+        width: 60px;
+        height: 60px;
+        border-radius: 15px;
+        color: #fff;
+        background: rgb(55, 165, 223);
+        box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.4);
+    }
+
+}
+
+
+.content::before {
+    content: '';
+    background: url('/example/19/img/line.svg') no-repeat;
+    background-size: 100% 100%;
     position: absolute;
+    animation: rotate-top-in 2.5s forwards;
 }
 
-/* Active state animations */
-.button.active {
-    .on {
-        animation: on-animation-active var(--half-time) ease-in-out forwards var(--half-time);
-    }
-
-    .off {
-        animation: off-animation-active var(--half-time) ease-in-out forwards var(--half-time);
-    }
-
-    .bg {
-        animation: bg-animation-active var(--total-time) ease-in-out forwards;
-    }
+.content::after {
+    content: '';
+    background: url('/example/19/img/line.svg') no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    animation: rotate-bottom-in 2.5s forwards;
 }
 
-/* Inactive state animations */
-.button.inactive {
-    .on {
-        background-color: var(--yellow);
-        animation: on-animation-inactive var(--half-time) ease-in-out forwards var(--half-time);
-    }
 
-    .off {
-        background-color: var(--blue);
-        animation: off-animation-inactive var(--half-time) ease-in-out forwards var(--half-time);
-    }
 
-    .bg {
-        animation: bg-animation-inactive var(--total-time) ease-in-out forwards;
-    }
-}
-
-/* Keyframes */
-@keyframes on-animation-active {
-    to {
-        background-color: var(--yellow);
-    }
-}
-
-@keyframes off-animation-active {
-    to {
-        background-color: var(--blue);
-    }
-}
-
-@keyframes bg-animation-active {
+@keyframes rotate-top-in {
     0% {
-        width: 70px;
-        left: 0;
+        width: 80px;
+        height: 100px;
+        top: -20%;
+        left: 50%;
+        transform: translateX(-50%) rotate(225deg);
     }
 
-    50% {
-        width: 100%;
-        right: 0;
+
+    10% {
+        width: 80px;
+        height: 100px;
+        top: 50%;
+        left: 80%;
+        transform: translate(-50%, -50%) rotate(270deg);
+    }
+
+
+    100% {
+        width: 0;
+        height: 0;
+        background-size: 0% 0%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(270deg);
+    }
+
+
+}
+
+@keyframes rotate-bottom-in {
+    0% {
+        width: 80px;
+        height: 100px;
+        bottom: -20%;
+        right: 50%;
+        transform: translateX(50%) rotate(45deg);
+    }
+
+    10% {
+        width: 80px;
+        height: 100px;
+        bottom: 50%;
+        right: 80%;
+        transform: translate(50%, 50%) rotate(90deg);
     }
 
     100% {
-        width: 70px;
-        right: 0;
-    }
-}
-
-@keyframes on-animation-inactive {
-    to {
-        background-color: var(--blue);
-    }
-}
-
-@keyframes off-animation-inactive {
-    to {
-        background-color: var(--yellow);
-    }
-}
-
-@keyframes bg-animation-inactive {
-    0% {
-        width: 70px;
-        right: 0;
+        width: 0;
+        height: 0;
+        background-size: 0% 0%;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%) rotate(90deg);
     }
 
-    50% {
-        width: 100%;
-        right: 0;
-    }
-
-    100% {
-        width: 70px;
-        left: 0;
-    }
 }

@@ -1,12 +1,9 @@
-/* Reset styles */
 * {
     margin: 0;
     padding: 0;
 }
 
-/* Base layout */
-html,
-body {
+html {
     width: 100%;
     height: 100%;
 }
@@ -16,53 +13,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Button base styles */
-.button {
-    width: 200px;
-    height: 50px;
-    border-radius: 35px;
-    display: flex;
-    overflow: hidden;
-    background: rgb(11, 76, 184);
-    position: relative;
-}
-
-/* 曲线动画 */
-.curve-line {
-    position: absolute;
+    width: 100%;
     height: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: moveCurve 5s linear infinite;
 }
 
-@keyframes moveCurve {
-    from {
-        transform: translate(-100%, -50%);
-        /* 起始位置在按钮左侧 */
-    }
-
-    to {
-        transform: translate(300%, -50%);
-        /* 结束位置在按钮右侧 */
-    }
-}
-
-/* 保持原有.button样式不变 */
 .button {
     width: 200px;
     height: 50px;
-    border-radius: 35px;
+    border-radius: 25px;
     display: flex;
-    overflow: hidden;
-    background: rgb(11, 76, 184);
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, rgb(234, 236, 239), rgb(244, 244, 244));
+    box-shadow: 4px 6px 4px rgba(22, 22, 22, 0.1);
+    cursor: pointer;
 }
 
-.circle {
-    stroke-dasharray: 500;
-    stroke-dashoffset: 420;
-    transform: rotate(-70deg);
+.button.active {
+    box-shadow: inset 4px 6px 4px rgba(22, 22, 22, 0.2);
+}
+
+.content {
+    letter-spacing: 0.15rem;
+    font-weight: 700;
+    color: rgb(141, 172, 203);
+    user-select: none;
 }

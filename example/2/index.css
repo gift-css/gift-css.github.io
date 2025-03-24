@@ -1,108 +1,44 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.submit {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-}
-
-.success {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    opacity: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .button {
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    overflow: hidden;
-    color: #fff;
-    letter-spacing: 0.1rem;
-    background: rgb(206, 95, 216);
-    border: 2px solid rgb(206, 95, 216);
-    position: relative;
-    cursor: pointer;
-    user-select: none;
-    font-weight: 700;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(74, 187, 243);
+  cursor: pointer;
+  transition: width 0.5s ease, box-shadow 0.5s ease;
 }
 
-.button.active::after {
-    content: "";
-    position: absolute;
-    margin: 4px;
-    inset: 0 100% 0 0;
-    border-radius: inherit;
-    background: rgb(206, 95, 216);
-    animation: progress-bar 1s forwards;
-    animation-delay: 0.35s;
+.button:hover {
+  width: 120px;
+  height: 50px;
+  background: rgb(76, 175, 165);
+  box-shadow: 0px 6px 0px rgb(60, 151, 198);
 }
 
-.button.active>.submit {
-    animation: submit-out ease-out 0.25s forwards;
-}
-
-.button.active>.success {
-    animation: success-in 0.5s forwards;
-    animation-delay: 1.35s;
-}
-
-.button.active {
-    animation: background-change ease-in 1.25s;
-    animation-delay: 0.25s;
-}
-
-@keyframes background-change {
-    20%,
-    100% {
-        background: #fff;
-    }
-}
-
-@keyframes progress-bar {
-    to {
-        inset: 0;
-        visibility: hidden;
-    }
-}
-
-@keyframes submit-out {
-    99% {
-        bottom: -20%;
-        opacity: 0;
-    }
-
-    100% {
-        bottom: -100%;
-    }
-}
-
-@keyframes success-in {
-    100% {
-        opacity: 1;
-    }
+.content {
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  color: rgb(217, 254, 255);
+  user-select: none;
 }
