@@ -1,3 +1,11 @@
+<!--
+ * @Author: coffeemil ecalm5@gmail.com
+ * @Date: 2025-03-24 15:33:31
+ * @LastEditors: coffeemil ecalm5@gmail.com
+ * @LastEditTime: 2025-03-24 15:35:56
+ * @FilePath: \gift-css\theme\theme2\core.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,31 +13,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>theme-index</title>
+    <title>theme-core</title>
+    <link rel="stylesheet" href="../../public/css/reset.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
-<style>
-    body,
-    html {
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-    }
-
-    body {
-        background: linear-gradient(45deg, rgb(251, 88, 147), rgb(155, 223, 58))
-    }
-
-    .container {
-        height: 100%;
-        width: 1400px;
-        margin: 0 auto;
-    }
-</style>
 
 <body>
-    <div class="container">
-        <object data="/theme/theme2/core.html" width=100% height="100%"></object>
+    <div class="main">
+        <nav class="main__nav">
+            <div class="main__nav__item">Home</div>
+            <div class="main__nav__item">About</div>
+            <div class="main__nav__item">Contact</div>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search examples...">
+        </div>
+        <div class="main__container">
+            <!-- 这里会动态添加项目内容 -->
+        </div>
     </div>
 </body>
-
+<script type="module" src="./script.js"></script>
 </html>
