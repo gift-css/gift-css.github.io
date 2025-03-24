@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gift CSS</title>
-    <link rel="stylesheet" href="/theme/theme2/style.css">
+    <link rel="stylesheet" href="/theme/theme3/style.css">
     <style>
       body, html {
         margin: 0;
@@ -105,7 +105,7 @@
               const src = script.getAttribute('src');
               if (src) {
                 // 处理相对路径
-                const absoluteSrc = src.startsWith('/') ? src : '/theme/theme2/' + src;
+                const absoluteSrc = src.startsWith('/') ? src : '/theme/theme3/' + src;
                 await this.loadScript(absoluteSrc);
               }
             }
