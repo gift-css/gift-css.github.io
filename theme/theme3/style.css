@@ -154,3 +154,116 @@ html {
         background-position: -200% 0;
     }
 }
+
+
+/* 代码查看按钮样式 */
+.code-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.code-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: rgba(34, 34, 34, 0.8);
+    border: 1px solid #444;
+    color: #e5e7eb;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(4px);
+}
+
+.code-button:hover {
+    background: rgba(47, 47, 47, 0.9);
+    border-color: #666;
+    transform: translateY(-2px);
+}
+
+/* 代码弹窗样式 */
+.code-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 800px;
+    max-height: 80vh;
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid #333;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none;
+}
+
+.code-modal.active {
+    display: block;
+}
+
+.modal-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    color: #e5e7eb;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modal-close {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    color: #666;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-close:hover {
+    color: #e5e7eb;
+}
+
+.modal-content {
+    padding: 24px;
+    overflow-y: auto;
+    max-height: calc(80vh - 120px);
+}
+
+.modal-content pre {
+    background: #222;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    color: #e5e7eb;
+    font-family: monospace;
+}
+
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    display: none;
+}
+
+.modal-backdrop.active {
+    display: block;
+}

@@ -70,11 +70,99 @@ function loadExamples (filterText = '') {
 }
 
 // 创建带延迟加载的示例卡片
-function createExampleCard (key) {
-  const wrap = document.createElement('div')
-  wrap.className = 'example__wrap'
-  wrap.dataset.key = key
-  return { wrap }
+// 修改 createExampleCard 函数
+function createExampleCard(key) {
+    const wrap = document.createElement('div')
+    wrap.className = 'example__wrap'
+    wrap.dataset.key = key
+
+    // 添加代码查看按钮
+    const buttonsDiv = document.createElement('div')
+    buttonsDiv.className = 'code-buttons'
+    
+    const buttons = [
+        { text: 'HTML', type: 'html' },
+        { text: 'CSS', type: 'css' },
+        { text: 'JS', type: 'js' }
+    ]
+    
+    buttons.forEach(({ text, type }) => {
+        const button = document.createElement('button')
+        button.className = 'code-button'
+        button.textContent = text
+        button.onclick = (e) => {
+            e.stopPropagation()
+            showCode(key, type)
+        }
+        buttonsDiv.appendChild(button)
+    })
+    
+    wrap.appendChild(buttonsDiv)
+    return { wrap }
+}
+
+// 添加代码查看相关函数
+async function showCode(key, type) {
+    const modal = createModal()
+    let content = ''
+    let title = ''
+    
+    try {
+        const response = await fetch(`../../example/${key}/index.${type}`)
+        if (!response.ok) throw new Error('File not found')
+        content = await response.text()
+        title = `${key}/index.${type}`
+    } catch (error) {
+        content = '// 文件不存在'
+        title = 'File Not Found'
+    }
+    
+    updateModal(modal, title, content)
+}
+
+function createModal() {
+    let modal = document.querySelector('.code-modal')
+    let backdrop = document.querySelector('.modal-backdrop')
+    
+    if (!modal) {
+        modal = document.createElement('div')
+        modal.className = 'code-modal'
+        modal.innerHTML = `
+            <div class="modal-header">
+                <div class="modal-title"></div>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-content">
+                <pre><code></code></pre>
+            </div>
+        `
+        
+        backdrop = document.createElement('div')
+        backdrop.className = 'modal-backdrop'
+        
+        document.body.appendChild(modal)
+        document.body.appendChild(backdrop)
+        
+        // 添加关闭事件
+        const closeBtn = modal.querySelector('.modal-close')
+        closeBtn.onclick = () => closeModal(modal, backdrop)
+        backdrop.onclick = () => closeModal(modal, backdrop)
+    }
+    
+    return { modal, backdrop }
+}
+
+function updateModal({ modal, backdrop }, title, content) {
+    modal.querySelector('.modal-title').textContent = title
+    modal.querySelector('code').textContent = content
+    
+    modal.classList.add('active')
+    backdrop.classList.add('active')
+}
+
+function closeModal(modal, backdrop) {
+    modal.classList.remove('active')
+    backdrop.classList.remove('active')
 }
 
 // 初始化函数
