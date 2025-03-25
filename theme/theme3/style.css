@@ -190,14 +190,14 @@ html {
     transform: translateY(-2px);
 }
 
-/* 代码弹窗样式 */
+/* 代码弹窗样式优化 */
 .code-modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 800px;
+    width: 90%;
+    max-width: 1000px;
     max-height: 80vh;
     background: #1a1a1a;
     border-radius: 12px;
@@ -217,26 +217,34 @@ html {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: #222;
+    border-radius: 12px 12px 0 0;
 }
 
-.modal-title {
-    color: #e5e7eb;
-    font-size: 16px;
-    font-weight: 500;
+.modal-tabs {
+    display: flex;
+    gap: 12px;
 }
 
-.modal-close {
-    width: 24px;
-    height: 24px;
+.modal-tab {
+    padding: 8px 16px;
     border: none;
     background: none;
     color: #666;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
 }
 
-.modal-close:hover {
+.modal-tab:hover {
+    background: rgba(79, 70, 229, 0.1);
     color: #e5e7eb;
+}
+
+.modal-tab.active {
+    background: #4f46e5;
+    color: #fff;
 }
 
 .modal-content {
@@ -251,7 +259,9 @@ html {
     border-radius: 8px;
     overflow-x: auto;
     color: #e5e7eb;
-    font-family: monospace;
+    font-family: 'Fira Code', monospace;
+    line-height: 1.5;
+    font-size: 14px;
 }
 
 .modal-backdrop {
@@ -260,7 +270,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(4px);
     z-index: 999;
     display: none;

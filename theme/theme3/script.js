@@ -109,25 +109,25 @@ function createExampleCard (key) {
 }
 
 // 添加代码查看相关函数
-async function showCode (key, type) {
+async function showCode(key, type = 'html') {
   const modal = createModal()
-  let content = ''
-  let title = ''
+  const types = ['html', 'css', 'js']
+  const contents = {}
 
-  try {
-    const response = await fetch(`../../example/${key}/index.${type}`)
-    if (!response.ok) throw new Error('File not found')
-    content = await response.text()
-    title = `${key}/index.${type}`
-  } catch (error) {
-    content = '// 文件不存在'
-    title = 'File Not Found'
-  }
+  // 并行加载所有文件
+  await Promise.all(types.map(async (fileType) => {
+    try {
+      const response = await fetch(`../../example/${key}/index.${fileType}`)
+      contents[fileType] = response.ok ? await response.text() : '// 文件不存在'
+    } catch (error) {
+      contents[fileType] = '// 文件不存在'
+    }
+  }))
 
-  updateModal(modal, title, content)
+  updateModalWithTabs(modal, key, contents, type)
 }
 
-function createModal () {
+function createModal() {
   let modal = document.querySelector('.code-modal')
   let backdrop = document.querySelector('.modal-backdrop')
 
@@ -135,14 +135,14 @@ function createModal () {
     modal = document.createElement('div')
     modal.className = 'code-modal'
     modal.innerHTML = `
-            <div class="modal-header">
-                <div class="modal-title"></div>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-content">
-                <pre><code></code></pre>
-            </div>
-        `
+      <div class="modal-header">
+        <div class="modal-tabs"></div>
+        <button class="modal-close">&times;</button>
+      </div>
+      <div class="modal-content">
+        <pre><code></code></pre>
+      </div>
+    `
 
     backdrop = document.createElement('div')
     backdrop.className = 'modal-backdrop'
@@ -150,7 +150,6 @@ function createModal () {
     document.body.appendChild(modal)
     document.body.appendChild(backdrop)
 
-    // 添加关闭事件
     const closeBtn = modal.querySelector('.modal-close')
     closeBtn.onclick = () => closeModal(modal, backdrop)
     backdrop.onclick = () => closeModal(modal, backdrop)
@@ -159,10 +158,27 @@ function createModal () {
   return { modal, backdrop }
 }
 
-function updateModal ({ modal, backdrop }, title, content) {
-  modal.querySelector('.modal-title').textContent = title
-  modal.querySelector('code').textContent = content
+function updateModalWithTabs({ modal, backdrop }, key, contents, activeType) {
+  const tabsContainer = modal.querySelector('.modal-tabs')
+  const codeElement = modal.querySelector('code')
+  tabsContainer.innerHTML = ''
 
+  // 创建标签页
+  const types = ['html', 'css', 'js']
+  types.forEach(type => {
+    const tab = document.createElement('button')
+    tab.className = `modal-tab ${type === activeType ? 'active' : ''}`
+    tab.textContent = type.toUpperCase()
+    tab.onclick = () => {
+      modal.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'))
+      tab.classList.add('active')
+      codeElement.textContent = contents[type]
+    }
+    tabsContainer.appendChild(tab)
+  })
+
+  // 显示当前激活的内容
+  codeElement.textContent = contents[activeType]
   modal.classList.add('active')
   backdrop.classList.add('active')
 }
