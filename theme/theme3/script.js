@@ -2,7 +2,7 @@
  * @Author: coffeemil ecalm5@gmail.com
  * @Date: 2025-01-22 12:49:19
  * @LastEditors: coffeemil ecalm5@gmail.com
- * @LastEditTime: 2025-03-21 17:04:44
+ * @LastEditTime: 2025-03-25 16:01:59
  * @FilePath: \gift-css\theme\theme2\script.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -62,72 +62,79 @@ function loadExamples (filterText = '') {
     )
     .map(([key]) => createExampleCard(key))
 
+    
   // 使用文档碎片批量添加
   const fragment = document.createDocumentFragment()
+
   currentExamples.forEach(example => fragment.appendChild(example.wrap))
+
+
   mainContainer.appendChild(fragment)
+  console.log(mainContainer,'mainContainer');
   resetSize() // 加载完示例后调整位置
 }
 
 // 创建带延迟加载的示例卡片
 // 修改 createExampleCard 函数
-function createExampleCard(key) {
-    const wrap = document.createElement('div')
-    wrap.className = 'example__wrap'
-    wrap.dataset.key = key
+function createExampleCard (key) {
+  console.log(key, 'key1111')
 
-    // 添加代码查看按钮
-    const buttonsDiv = document.createElement('div')
-    buttonsDiv.className = 'code-buttons'
-    
-    const buttons = [
-        { text: 'HTML', type: 'html' },
-        { text: 'CSS', type: 'css' },
-        { text: 'JS', type: 'js' }
-    ]
-    
-    buttons.forEach(({ text, type }) => {
-        const button = document.createElement('button')
-        button.className = 'code-button'
-        button.textContent = text
-        button.onclick = (e) => {
-            e.stopPropagation()
-            showCode(key, type)
-        }
-        buttonsDiv.appendChild(button)
-    })
-    
-    wrap.appendChild(buttonsDiv)
-    return { wrap }
+  const wrap = document.createElement('div')
+  wrap.className = 'example__wrap'
+  wrap.dataset.key = key
+
+  // 添加代码查看按钮
+  const buttonsDiv = document.createElement('div')
+  buttonsDiv.className = 'code-buttons'
+
+  const buttons = [
+    { text: 'HTML', type: 'html' },
+    { text: 'CSS', type: 'css' },
+    { text: 'JS', type: 'js' }
+  ]
+
+  buttons.forEach(({ text, type }) => {
+    const button = document.createElement('button')
+    button.className = 'code-button'
+    button.textContent = text
+    button.onclick = e => {
+      e.stopPropagation()
+      showCode(key, type)
+    }
+    buttonsDiv.appendChild(button)
+  })
+
+  wrap.appendChild(buttonsDiv)
+  return { wrap }
 }
 
 // 添加代码查看相关函数
-async function showCode(key, type) {
-    const modal = createModal()
-    let content = ''
-    let title = ''
-    
-    try {
-        const response = await fetch(`../../example/${key}/index.${type}`)
-        if (!response.ok) throw new Error('File not found')
-        content = await response.text()
-        title = `${key}/index.${type}`
-    } catch (error) {
-        content = '// 文件不存在'
-        title = 'File Not Found'
-    }
-    
-    updateModal(modal, title, content)
+async function showCode (key, type) {
+  const modal = createModal()
+  let content = ''
+  let title = ''
+
+  try {
+    const response = await fetch(`../../example/${key}/index.${type}`)
+    if (!response.ok) throw new Error('File not found')
+    content = await response.text()
+    title = `${key}/index.${type}`
+  } catch (error) {
+    content = '// 文件不存在'
+    title = 'File Not Found'
+  }
+
+  updateModal(modal, title, content)
 }
 
-function createModal() {
-    let modal = document.querySelector('.code-modal')
-    let backdrop = document.querySelector('.modal-backdrop')
-    
-    if (!modal) {
-        modal = document.createElement('div')
-        modal.className = 'code-modal'
-        modal.innerHTML = `
+function createModal () {
+  let modal = document.querySelector('.code-modal')
+  let backdrop = document.querySelector('.modal-backdrop')
+
+  if (!modal) {
+    modal = document.createElement('div')
+    modal.className = 'code-modal'
+    modal.innerHTML = `
             <div class="modal-header">
                 <div class="modal-title"></div>
                 <button class="modal-close">&times;</button>
@@ -136,33 +143,33 @@ function createModal() {
                 <pre><code></code></pre>
             </div>
         `
-        
-        backdrop = document.createElement('div')
-        backdrop.className = 'modal-backdrop'
-        
-        document.body.appendChild(modal)
-        document.body.appendChild(backdrop)
-        
-        // 添加关闭事件
-        const closeBtn = modal.querySelector('.modal-close')
-        closeBtn.onclick = () => closeModal(modal, backdrop)
-        backdrop.onclick = () => closeModal(modal, backdrop)
-    }
-    
-    return { modal, backdrop }
+
+    backdrop = document.createElement('div')
+    backdrop.className = 'modal-backdrop'
+
+    document.body.appendChild(modal)
+    document.body.appendChild(backdrop)
+
+    // 添加关闭事件
+    const closeBtn = modal.querySelector('.modal-close')
+    closeBtn.onclick = () => closeModal(modal, backdrop)
+    backdrop.onclick = () => closeModal(modal, backdrop)
+  }
+
+  return { modal, backdrop }
 }
 
-function updateModal({ modal, backdrop }, title, content) {
-    modal.querySelector('.modal-title').textContent = title
-    modal.querySelector('code').textContent = content
-    
-    modal.classList.add('active')
-    backdrop.classList.add('active')
+function updateModal ({ modal, backdrop }, title, content) {
+  modal.querySelector('.modal-title').textContent = title
+  modal.querySelector('code').textContent = content
+
+  modal.classList.add('active')
+  backdrop.classList.add('active')
 }
 
-function closeModal(modal, backdrop) {
-    modal.classList.remove('active')
-    backdrop.classList.remove('active')
+function closeModal (modal, backdrop) {
+  modal.classList.remove('active')
+  backdrop.classList.remove('active')
 }
 
 // 初始化函数
@@ -174,22 +181,22 @@ function closeModal(modal, backdrop) {
         if (entry.isIntersecting) {
           const wrap = entry.target
           const key = wrap.dataset.key
-          
+
           // 如果已经有shadowHost，则跳过
           if (wrap.shadowHost) {
             observer.unobserve(wrap)
             continue
           }
-          
+
           // 创建shadowHost
           const shadowHost = document.createElement('div')
           shadowHost.style.width = '100%'
           shadowHost.style.height = '100%'
           wrap.appendChild(shadowHost)
           wrap.shadowHost = shadowHost
-          
+
           // 创建 Shadow DOM
-          const shadowRoot = shadowHost.attachShadow({ 
+          const shadowRoot = shadowHost.attachShadow({
             mode: 'open',
             delegatesFocus: true // 添加焦点委托
           })
@@ -229,36 +236,39 @@ function closeModal(modal, backdrop) {
             const html = await response.text()
             const parser = new DOMParser()
             const doc = parser.parseFromString(html, 'text/html')
-  
+
             // 创建内容包装器
             const contentWrapper = document.createElement('div')
             contentWrapper.className = 'content-wrapper'
-            
+
             // 将内容添加到包装器中，但排除script标签
             Array.from(doc.body.children).forEach(node => {
               if (node.tagName.toLowerCase() !== 'script') {
                 contentWrapper.appendChild(node.cloneNode(true))
               }
             })
-  
+
             // 清除loading内容并添加实际内容
             shadowRoot.querySelector('.loading').remove()
             shadowRoot.appendChild(contentWrapper)
-  
+
             // 加载并执行 JavaScript
             try {
               const jsResponse = await fetch(`../../example/${key}/index.js`)
               if (jsResponse.ok) {
                 const jsContent = await jsResponse.text()
                 const context = {
-                  document: shadowRoot,  // 直接使用 shadowRoot 作为 document
+                  document: shadowRoot, // 直接使用 shadowRoot 作为 document
                   querySelector: selector => shadowRoot.querySelector(selector),
-                  querySelectorAll: selector => shadowRoot.querySelectorAll(selector),
+                  querySelectorAll: selector =>
+                    shadowRoot.querySelectorAll(selector),
                   window,
                   shadowRoot,
                   container: contentWrapper
                 }
-                const executeScript = new Function('context', `
+                const executeScript = new Function(
+                  'context',
+                  `
                   with(context) {
                     try {
                       ${jsContent}
@@ -266,11 +276,15 @@ function closeModal(modal, backdrop) {
                       console.error('Error executing script:', error);
                     }
                   }
-                `)
+                `
+                )
                 executeScript(context)
               }
             } catch (jsError) {
-              console.warn(`No JavaScript file found for example ${key}`, jsError)
+              console.warn(
+                `No JavaScript file found for example ${key}`,
+                jsError
+              )
             }
           } catch (error) {
             console.error(error)
@@ -299,7 +313,7 @@ function closeModal(modal, backdrop) {
       // 重新初始化观察目标
       currentExamples.forEach(({ wrap }) => observer.observe(wrap))
     }, 300)
-    
+
     searchInput.addEventListener('input', handleSearch)
   }
 

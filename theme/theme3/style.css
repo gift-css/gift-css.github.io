@@ -121,6 +121,10 @@ html {
     border-color: #444;
 }
 
+.example__wrap:hover .code-buttons {
+    opacity: 1;
+}
+
 /* 滚动条样式 */
 .main__container::-webkit-scrollbar {
     width: 8px;
@@ -158,12 +162,10 @@ html {
 
 /* 代码查看按钮样式 */
 .code-buttons {
-    position: absolute;
-    top: 10px;
-    right: 10px;
     display: flex;
+    justify-content: end;
     gap: 8px;
-    z-index: 10;
+    opacity: 0;
 }
 
 .code-button {
