@@ -2,7 +2,7 @@
  * @Author: coffeemil ecalm5@gmail.com
  * @Date: 2025-01-22 12:49:19
  * @LastEditors: coffeemil ecalm5@gmail.com
- * @LastEditTime: 2025-03-25 16:01:59
+ * @LastEditTime: 2025-03-26 14:24:16
  * @FilePath: \gift-css\theme\theme2\script.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -62,15 +62,13 @@ function loadExamples (filterText = '') {
     )
     .map(([key]) => createExampleCard(key))
 
-    
   // 使用文档碎片批量添加
   const fragment = document.createDocumentFragment()
 
   currentExamples.forEach(example => fragment.appendChild(example.wrap))
 
-
   mainContainer.appendChild(fragment)
-  console.log(mainContainer,'mainContainer');
+  console.log(mainContainer, 'mainContainer')
   resetSize() // 加载完示例后调整位置
 }
 
@@ -109,25 +107,29 @@ function createExampleCard (key) {
 }
 
 // 添加代码查看相关函数
-async function showCode(key, type = 'html') {
+async function showCode (key, type = 'html') {
   const modal = createModal()
   const types = ['html', 'css', 'js']
   const contents = {}
 
   // 并行加载所有文件
-  await Promise.all(types.map(async (fileType) => {
-    try {
-      const response = await fetch(`../../example/${key}/index.${fileType}`)
-      contents[fileType] = response.ok ? await response.text() : '// 文件不存在'
-    } catch (error) {
-      contents[fileType] = '// 文件不存在'
-    }
-  }))
+  await Promise.all(
+    types.map(async fileType => {
+      try {
+        const response = await fetch(`../../example/${key}/index.${fileType}`)
+        contents[fileType] = response.ok
+          ? await response.text()
+          : '// 文件不存在'
+      } catch (error) {
+        contents[fileType] = '// 文件不存在'
+      }
+    })
+  )
 
   updateModalWithTabs(modal, key, contents, type)
 }
 
-function createModal() {
+function createModal () {
   let modal = document.querySelector('.code-modal')
   let backdrop = document.querySelector('.modal-backdrop')
 
@@ -158,7 +160,7 @@ function createModal() {
   return { modal, backdrop }
 }
 
-function updateModalWithTabs({ modal, backdrop }, key, contents, activeType) {
+function updateModalWithTabs ({ modal, backdrop }, key, contents, activeType) {
   const tabsContainer = modal.querySelector('.modal-tabs')
   const codeElement = modal.querySelector('code')
   tabsContainer.innerHTML = ''
@@ -170,7 +172,9 @@ function updateModalWithTabs({ modal, backdrop }, key, contents, activeType) {
     tab.className = `modal-tab ${type === activeType ? 'active' : ''}`
     tab.textContent = type.toUpperCase()
     tab.onclick = () => {
-      modal.querySelectorAll('.modal-tab').forEach(t => t.classList.remove('active'))
+      modal
+        .querySelectorAll('.modal-tab')
+        .forEach(t => t.classList.remove('active'))
       tab.classList.add('active')
       codeElement.textContent = contents[type]
     }
@@ -230,6 +234,7 @@ function closeModal (modal, backdrop) {
                 all: initial;
               }
               .content-wrapper {
+                background-color: #ccc;
                 width: 100%;
                 height: 100%;
                 display: flex;
