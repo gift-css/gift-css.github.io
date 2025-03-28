@@ -1,3 +1,8 @@
+/*
+ * @Date: 2025-02-10 11:06:39
+ * @LastEditors: coffeemil ecalm5@gmail.com
+ * @LastEditTime: 2025-03-28 09:54:14
+ */
 * {
     margin: 0;
     padding: 0;
@@ -26,22 +31,33 @@ body {
 }
 
 .content {
-    /* animation: show 1s infinite; */
-    /* background: red; */
     position: relative;
-    /* overflow: hidden; */
-    animation: rotate 2.5s forwards;
     display: flex;
     justify-content: center;
     align-items: center;
     color: transparent;
     font-weight: 700;
+    width: 60px;
+    height: 60px;
+    border-radius: 15px;
+    color: #fff;
+    background: rgb(55, 165, 223);
+    box-shadow: 0px 3px 3px 3px rgba(0, 0, 0, 0.4);
+    user-select: none;
+    cursor: pointer;
+}
+
+.button.active .content {
+    animation: rotate 2.5s forwards;
 }
 
 @keyframes rotate {
     0% {
         width: 300px;
         height: 300px;
+        background: transparent;
+        box-shadow: none;
+        color: transparent;
     }
 
     80% {
@@ -70,17 +86,17 @@ body {
 }
 
 
-.content::before {
+.button.active .content::before {
     content: '';
-    background: url('/example/19/img/line.svg') no-repeat;
+    background: url('./img/line.svg') no-repeat;
     background-size: 100% 100%;
     position: absolute;
     animation: rotate-top-in 2.5s forwards;
 }
 
-.content::after {
+.button.active .content::after {
     content: '';
-    background: url('/example/19/img/line.svg') no-repeat;
+    background: url('./img/line.svg') no-repeat;
     background-size: 100% 100%;
     position: absolute;
     animation: rotate-bottom-in 2.5s forwards;
