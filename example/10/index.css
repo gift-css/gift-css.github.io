@@ -26,10 +26,14 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: 700;
+    border: 1px solid #000;
 }
 
+.button.active {
+    border: none
+}
 
-.button>.top-border {
+.button.active>.top-border {
     background: #000;
     position: absolute;
     left: 0;
@@ -37,7 +41,7 @@ body {
     animation: horizontal-line 0.5s forwards;
 }
 
-.button>.right-border {
+.button.active>.right-border {
     background: #000;
     position: absolute;
     left: 100%;
@@ -47,7 +51,7 @@ body {
 
 }
 
-.button>.bottom-border {
+.button.active>.bottom-border {
     background: #000;
     position: absolute;
     top: 100%;
@@ -55,7 +59,7 @@ body {
     animation-delay: 1s;
 }
 
-.button>.left-border {
+.button.active>.left-border {
     background: #000;
     position: absolute;
     left: 0;
@@ -64,7 +68,7 @@ body {
     animation-delay: 1.5s;
 }
 
-.button>.content {
+.button.active>.content {
     transform: scale(0);
     animation: show 0.5s forwards;
     animation-delay: 2s;
