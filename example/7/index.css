@@ -1,3 +1,8 @@
+/*
+ * @Date: 2025-02-07 11:28:25
+ * @LastEditors: coffeemil ecalm5@gmail.com
+ * @LastEditTime: 2025-04-07 16:14:40
+ */
 .button {
     background: rgb(65, 180, 208);
     width: 150px;
@@ -29,7 +34,7 @@
     display: block;
     width: 40px;
     height: 40px;
-    background-image: url('/example/15/assets/success.svg');
+    background-image: url('./assets/success.svg');
     background-repeat: no-repeat;
     background-size: 40px;
     animation: content 3s;
@@ -38,16 +43,16 @@
 
 @keyframes content {
     0% {
-        background: url('/example/15/assets/loading.svg') 0/40px no-repeat;
+        background: url('./assets/loading.svg') 0/40px no-repeat;
     }
 
     75% {
-        background: url('/example/15/assets/loading.svg') 0/40px no-repeat;
+        background: url('./assets/loading.svg') 0/40px no-repeat;
         transform: rotate(720deg);
     }
 
     100% {
-        background: url('/example/15/assets/success.svg') 0/40px no-repeat;
+        background: url('./assets/success.svg') 0/40px no-repeat;
         transform: rotate(1080deg);
     }
 }
