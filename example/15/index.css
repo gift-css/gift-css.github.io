@@ -7,7 +7,10 @@ html {
     width: 100%;
     height: 100%;
 }
-
+svg {
+    width: 100%;
+    height: 100%;
+}
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -17,55 +20,43 @@ body {
     height: 100%;
 }
 
-
 .button {
-    width: 150px;
-    height: 50px;
-    border-radius: 30px;
-    background-color: rgb(33, 206, 204);
-    position: relative;
-    overflow: hidden;
-    box-shadow: -4px 6px 0px rgba(0, 0, 0, 1);
-    user-select: none;
-    cursor: pointer;
+    width: 300px;
+    height: 300px;
 }
 
-.button.active {
-    box-shadow: -4px 4px 0px rgba(0, 0, 0, 1);
-    transform: translate(0px, 2px);
+.circle {
+    stroke-dasharray: 1300;
+    stroke-dashoffset: 100;
+    animation: dash 1.333s ease;
+    transform-origin: center;
 }
 
-.ray-wrap {
-    position: absolute;
-    display: flex;
-    transform: rotate(30deg);
-    animation: move 2s infinite;
-    height: 160%;
+.button.active .circle {
+    animation: dash 1.333s ease;
+    animation-delay: 0.333s;
 }
 
-
-@keyframes move {
+@keyframes dash {
     0% {
-        top: -30%;
-        left: -25%;
+        stroke-dashoffset:  1300;
+        transform: scale(1) rotate(-90deg);
     }
 
+    50%{
+        stroke-dashoffset: 0;
+        transform: scale(1) rotate(-90deg);
+    }
+    60%{
+        stroke-dashoffset: 0;
+        transform: scale(0.7) rotate(-90deg);
+    }
+    80%{
+        stroke-dashoffset: 0;
+        transform: scale(1.1) rotate(-90deg);
+    }
     100% {
-        top: -30%;
-        left: 125%;
+        stroke-dashoffset: 0;
+        transform: scale(1) rotate(-90deg);
     }
-}
-
-.ray {
-    width: 35px;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.4);
-}
-
-h3 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
 }
