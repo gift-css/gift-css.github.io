@@ -104,6 +104,10 @@ body {
     }
 }
 
+.tick {
+    opacity: 0;
+}
+
 .button.active .tick {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
