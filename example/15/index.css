@@ -7,10 +7,12 @@ html {
     width: 100%;
     height: 100%;
 }
+
 svg {
     width: 100%;
     height: 100%;
 }
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -28,35 +30,99 @@ body {
 .circle {
     stroke-dasharray: 1300;
     stroke-dashoffset: 100;
-    animation: dash 1.333s ease;
     transform-origin: center;
 }
 
 .button.active .circle {
-    animation: dash 1.333s ease;
-    animation-delay: 0.333s;
+    animation: dash 1.5s ease;
 }
 
 @keyframes dash {
     0% {
-        stroke-dashoffset:  1300;
+        stroke-dashoffset: 1300;
         transform: scale(1) rotate(-90deg);
     }
 
-    50%{
+    50% {
         stroke-dashoffset: 0;
         transform: scale(1) rotate(-90deg);
     }
-    60%{
+
+    60% {
         stroke-dashoffset: 0;
         transform: scale(0.7) rotate(-90deg);
     }
-    80%{
+
+    80% {
         stroke-dashoffset: 0;
         transform: scale(1.1) rotate(-90deg);
     }
+
     100% {
         stroke-dashoffset: 0;
         transform: scale(1) rotate(-90deg);
+    }
+}
+
+.button.active .fill-circle1 {
+    animation: fill-circle1-spread 0.3s ease forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes fill-circle1-spread {
+    0% {
+        r: 0;
+        fill: rgb(255, 255, 255);
+    }
+
+    70% {
+        r: 90;
+        fill: rgb(133, 212, 117);
+    }
+
+    100% {
+        r: 100;
+        fill: rgb(109, 204, 91);
+    }
+}
+
+
+.button.active .fill-circle2 {
+    animation: fill-circle2-spread 0.7s ease forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes fill-circle2-spread {
+    0% {
+        r: 0;
+        fill: rgb(109, 204, 91);
+    }
+
+    100% {
+        r: 104;
+        fill: rgb(134, 224, 114);
+    }
+}
+
+.button.active .tick {
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    animation: tick-animation 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    animation-delay: 1.8s;
+}
+
+@keyframes tick-animation {
+    0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
     }
 }
