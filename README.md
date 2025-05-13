@@ -5,7 +5,7 @@
 ## Example List
 
 | 序号 | EngLish Name                                   | 中文名字                   |
-| ---- | ---------------------------------------------- | -------------------------- |
+|-----|-----------------------------------------------|--------------------------|
 | 1    | Animated Submit-to-Success Button Transition   | 灵动提交成功按钮动画       |
 | 2    | Width-Shift Animated Button                    | 宽变灵动按钮               |
 | 3    | Switch Transition Button                       | 开关过渡按钮               |
@@ -20,3 +20,4 @@
 | 12   | Button Press Animation                         | 按钮按压动画               |
 | 13   | Circle Morph Submit                            | 圆环变形提交按钮           |
 | 14   | Pressed State Button                           | 按压态按钮                 |
+| 15   | Success Check Animation                        | 成功打勾动画               |
