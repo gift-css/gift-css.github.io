@@ -23,8 +23,8 @@ body {
 }
 
 .button {
-    width: 300px;
-    height: 300px;
+    width: 150px;
+    height: 150px;
 }
 
 .circle {
@@ -76,12 +76,12 @@ body {
     }
 
     70% {
-        r: 90;
+        r: 45;
         fill: rgb(133, 212, 117);
     }
 
     100% {
-        r: 100;
+        r: 50;
         fill: rgb(109, 204, 91);
     }
 }
@@ -99,7 +99,7 @@ body {
     }
 
     100% {
-        r: 104;
+        r: 54;
         fill: rgb(134, 224, 114);
     }
 }
