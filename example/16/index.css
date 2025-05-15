@@ -1,0 +1,33 @@
+/*
+ * @Date: 2025-05-15 17:24:34
+ * @LastEditors: coffeemil ecalm5@gmail.com
+ * @LastEditTime: 2025-05-15 17:25:04
+ */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+svg {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    width: 150px;
+    height: 150px;
+}
